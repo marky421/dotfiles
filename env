@@ -1,0 +1,18 @@
+#######################################################################
+# ~/.env
+# Mark Spain
+######################################################################
+
+# environment variables
+if [[ $MY_ENVIRONMENT != yes ]]; then 
+  # Explicitly configured $PATH variable
+  export PATH=/usr/local/git/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/opt/local/bin:/opt/local/sbin:/usr/X11/bin:$PATH
+ 
+  export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
+  export ANT_HOME="/usr/share/ant"
+  export RVM_HOME="$HOME/.rvm"
+  export PATH="$JAVA_HOME/bin:$ANT_HOME/bin:$RVM_HOME/bin:$PATH"
+  export PATH="$HOME/bin:$PATH"             # add custom bin folder to PATH
+  export MY_ENVIRONMENT=yes
+fi
+

@@ -1,0 +1,24 @@
+#######################################################################
+# ~/.functions
+# Mark Spain
+#######################################################################
+
+# qfind - used to quickly find files that contain a string in a directory
+qfind () {
+  find . -exec grep -l -s $1 {} \;
+  return 0
+}
+
+# cdl - change to a directory and list its contents
+cdl() {
+  'cd' $1
+  'ls' -CFGh
+}
+
+# mkcd - create a directory and cd to it
+mkcd() {
+  'mkdir' $*
+  'cd' ${@: -1}
+}
+
+
