@@ -12,7 +12,7 @@
 dir=~/dotfiles        # dotfiles directory
 oldDir=~/dotfiles_old # old dotfiles backup directory
 # list of files/folders to symlink in homedir
-files="bash_profile bash_logout bash_load aliases env bashrc gitconfig vim zshrc oh-my-zsh private tomcat"
+files="bash_profile bash_logout bash_load aliases env functions bashrc gitconfig vim zshrc oh-my-zsh private tomcat"
 
 # create dotfiles_old in homedir
 #######################################
