@@ -4,4 +4,4 @@
 #######################################################################
 
 export CATALINA_HOME=/opt/tomcat
-
+alias tomcat="cd $CATALINA_HOME"
