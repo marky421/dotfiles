@@ -22,6 +22,7 @@ alias mkdir='mkdir -p'                  # create parent directories
 alias path='echo -e ${PATH//:/\\n}'     # print $PATH line by line
 alias ..='cd ..'                        # go up one directory
 alias ...='cd ../..'                    # go uo two directories
+alias c='clear'                         # clear the screen
 
 # git aliases
 alias gs='git status '
