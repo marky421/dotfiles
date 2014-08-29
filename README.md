@@ -28,5 +28,5 @@ Here's a quick breakdown of what happens when you run the setup script:
 ## Installation
 
 ```bash
-git clone git://github.com/marky421/dotfiles ~/dotfiles && ~/dotfiles/install.sh
+$ git clone git://github.com/marky421/dotfiles ~/dotfiles && ~/dotfiles/install.sh
 ```
