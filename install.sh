@@ -51,9 +51,7 @@ if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
     fi
     # Clone zsh-syntax-highlighting from GitHub only if it isn't already present
     if [[ ! -d $dir/oh-my-zsh/custom/plugins/zsh-syntax-highlighting/ ]]; then
-        cd $dir/oh-my-zsh/custom/plugins
-        git clone http://github.com/zsh-users/zsh-syntax-highlighting.git
-        cd $dir
+        git clone http://github.com/zsh-users/zsh-syntax-highlighting.git $dir/oh-my-zsh/custom/plugins/zsh-syntax-highlighting
     fi
 else
     # If zsh isn't installed, get the platform of the current machine
