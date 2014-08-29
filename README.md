@@ -18,6 +18,7 @@ default shell to zsh. You will have to either spawn a new login shell, or
 simply log out and back in for the changes to take effect.
 
 Here's a quick breakdown of what happens when you run the setup script:
+
 1. Back up any existing dotfiles in your home directory to `~/dotfiles_old`
 2. Create symlinks to the dotfiles in `~/dotfiles` in your home directory
 3. Clone my fork of the `oh-my-zsh` repository from GitHub (to use with `zsh`)
