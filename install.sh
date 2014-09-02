@@ -9,8 +9,8 @@
 
 # variables
 ########################################
-dir=~/dotfiles        # dotfiles directory
-oldDir=~/dotfiles_old # old dotfiles backup directory
+dir=$HOME/dotfiles        # dotfiles directory
+oldDir=$HOME/dotfiles_old # old dotfiles backup directory
 # list of files/folders to symlink in homedir
 files="bash_profile bash_load aliases env functions bashrc gitconfig vim zshrc oh-my-zsh private tomcat"
 
@@ -30,9 +30,9 @@ echo "...done"
 ########################################
 for file in $files; do 
     echo "Moving any existing dotfiles from ~ to $oldDir"
-    mv ~/.$file ~/dotfiles_old/
+    mv $HOME/.$file $HOME/dotfiles_old/
     echo "Creating symlink to $file in home directory"
-    ln -s $dir/$file ~/.$file
+    ln -s $dir/$file $HOME/.$file
 done
 echo "...done"
 
