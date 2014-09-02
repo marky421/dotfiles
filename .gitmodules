@@ -1,40 +1,40 @@
 [submodule "vim/bundle/AutoComplPop"]
-	path = vim/bundle/AutoComplPop
+    path = vim/bundle/AutoComplPop
     url = https://github.com/vim-scripts/AutoComplPop.git
     ignore = dirty
 [submodule "vim/bundle/nerdtree"]
-	path = vim/bundle/nerdtree
+    path = vim/bundle/nerdtree
     url = https://github.com/scrooloose/nerdtree.git
     ignore = dirty
 [submodule "vim/bundle/supertab"]
-	path = vim/bundle/supertab
+    path = vim/bundle/supertab
     url = https://github.com/ervandew/supertab.git
     ignore = dirty
 [submodule "vim/bundle/vim-colors-solarized"]
-	path = vim/bundle/vim-colors-solarized
+    path = vim/bundle/vim-colors-solarized
     url = https://github.com/altercation/vim-colors-solarized.git
     ignore = dirty
 [submodule "vim/bundle/vim-bundler"]
-	path = vim/bundle/vim-bundler
+    path = vim/bundle/vim-bundler
     url = https://github.com/tpope/vim-bundler.git
     ignore = dirty
 [submodule "vim/bundle/vim-rails"]
-	path = vim/bundle/vim-rails
+    path = vim/bundle/vim-rails
     url = https://github.com/tpope/vim-rails.git
     ignore = dirty
 [submodule "vim/bundle/vim-sensible"]
-	path = vim/bundle/vim-sensible
+    path = vim/bundle/vim-sensible
     url = https://github.com/tpope/vim-sensible.git
     ignore = dirty
 [submodule "vim/bundle/vim-ruby"]
-	path = vim/bundle/vim-ruby
+    path = vim/bundle/vim-ruby
     url = https://github.com/vim-ruby/vim-ruby.git
     ignore = dirty
 [submodule "oh-my-zsh"]
-	path = oh-my-zsh
+    path = oh-my-zsh
     url = https://github.com/marky421/oh-my-zsh.git
     ignore = dirty
 [submodule "oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
-	path = oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+    path = oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+    url = https://github.com/zsh-users/zsh-syntax-highlighting.git
     ignore = dirty
