@@ -25,3 +25,6 @@
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = git://github.com/marky421/oh-my-zsh.git
+[submodule "nerdtree"]
+	path = nerdtree
+	url = git://github.com/scrooloose/nerdtree.git
