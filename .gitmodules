@@ -31,6 +31,6 @@
 	url = https://github.com/vim-ruby/vim-ruby.git
     ignore = dirty
 [submodule "oh-my-zsh"]
-    path = oh-my-zsh
-    url = https://github.com/marky421/oh-my-zsh.git
+	path = oh-my-zsh
+	url = https://github.com/marky421/oh-my-zsh.git
     ignore = dirty
