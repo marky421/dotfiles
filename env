@@ -3,13 +3,28 @@
 # Mark Spain
 ######################################################################
 
+# get operating system
+OS=$(uname)
+if [[ $OS == Darwin ]]; then
+  OS=Mac
+elif [[ $OS == Linux ]]; then
+  OS=Linux
+fi
+
 # environment variables
 if [[ $MY_ENVIRONMENT != yes ]]; then 
   # Explicitly configured $PATH variable
   export PATH=/usr/local/git/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/opt/local/bin:/opt/local/sbin:/usr/X11/bin:$PATH
-  export OPENDS_JAVA_HOME="/usr/lib/jvm/java-6-oracle"
-  export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
-  export ANT_HOME="/usr/share/ant"
+  
+  if [[ $OS == Linux ]]; then
+    export OPENDS_JAVA_HOME="/usr/lib/jvm/java-6-oracle"
+    export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
+    export ANT_HOME="/usr/share/ant"
+  elif [[ $OS == Mac ]]; then
+    export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home"
+    export ANT_HOME="/usr/local/apache-ant"
+  fi
+
   export RVM_HOME="$HOME/.rvm"
   export PATH="$JAVA_HOME/bin:$ANT_HOME/bin:$RVM_HOME/bin:$PATH"
   export PATH="$HOME/bin:$PATH"             # add custom bin folder to PATH
