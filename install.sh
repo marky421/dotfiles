@@ -43,10 +43,6 @@ install_zsh () {
 if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
     git submodule init
     git submodule update
-    # Clone my oh-my-zsh repository from GitHub only if it isn't already present
-    if [[ ! -d $dir/oh-my-zsh/ ]]; then
-        #git clone git://github.com/marky421/oh-my-zsh.git $dir
-    fi
     # Set the default shell to zsh if it isn't currently set to zsh
     if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
         chsh -s $(which zsh)
