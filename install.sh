@@ -26,23 +26,12 @@ echo "Changing to the $dir directory"
 cd $dir
 echo "...done"
 
-# backup old dotfiles and create symlinks to new ones
-########################################
-echo "Moving any existing dotfiles from ~ to $oldDir"
-for file in $files; do 
-    mv $HOME/.$file $HOME/dotfiles_old/
-    echo "Creating symlink to $file in home directory"
-    ln -s $dir/$file $HOME/.$file
-done
-echo "...done"
-
 # install zsh customization files
 ########################################
 install_zsh () {
   if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
     # install submodules
     git submodule update --init --recursive
-    git submodule update
     # set the default shell to zsh if it isn't currently set to zsh
     if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
         chsh -s $(which zsh)
@@ -67,4 +56,14 @@ install_zsh () {
 }
 
 install_zsh
+
+# backup old dotfiles and create symlinks to new ones
+########################################
+echo "Moving any existing dotfiles from ~ to $oldDir"
+for file in $files; do 
+    mv $HOME/.$file $HOME/dotfiles_old/
+    echo "Creating symlink to $file in home directory"
+    ln -s $dir/$file $HOME/.$file
+done
+echo "...done"
 
