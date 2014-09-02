@@ -4,14 +4,11 @@
 #######################################################################
 
 # get operating system
+########################################
 OS=$(uname)
-if [[ $OS == Darwin ]]; then
-  OS=Mac
-elif [[ $OS == Linux ]]; then
-  OS=Linux
-fi
 
 # some useful aliases
+########################################
 alias mv='mv -i'                        # prompts if overwriting a file
 alias cp='cp -i'                        # prompts if overwriting a file
 alias vi='vim'                          # always use vim instead of vi
@@ -23,16 +20,18 @@ alias ...='cd ../..'                    # go uo two directories
 alias c='clear'                         # clear the screen
 
 # grep aliases
+########################################
 alias grep='grep --color=always'        # use colors for grep
 alias egrep='egrep --color=always'      # use colors for egrep
 
 # ls aliases
-if [[ $OS == Mac ]]; then
+########################################
+# os-specific ls options
+if [[ $OS == Darwin ]]; then
   alias ls='ls -CFGh'                   # enhance ls (Mac)
 elif [[ $OS == Linux ]]; then
   alias ls='ls -CFh --color=always'     # enhance ls (Linux)
 fi
-
 alias sl='ls'                           # autocorrect 'ls' typo
 alias al='la -a'                        # autocorrect 'ls -a' shortcut typo
 alias l='ls'                            # enable use of l for ls
@@ -42,6 +41,7 @@ alias lla='ls -la'                      # give lla desired 'ls -la' behavior
 alias lal='la -al'                      # give lal desired 'ls -al' behavior
 
 # git aliases
+########################################
 alias gs='git status '
 alias ga='git add '
 alias gb='git branch '
@@ -54,8 +54,10 @@ alias got='git '
 alias get='git '
 
 # MySQL aliases
+########################################
 alias mysql='mysql -u root'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
