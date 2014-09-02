@@ -28,8 +28,8 @@ echo "...done"
 
 # backup old dotfiles and create symlinks to new ones
 ########################################
+echo "Moving any existing dotfiles from ~ to $oldDir"
 for file in $files; do 
-    echo "Moving any existing dotfiles from ~ to $oldDir"
     mv $HOME/.$file $HOME/dotfiles_old/
     echo "Creating symlink to $file in home directory"
     ln -s $dir/$file $HOME/.$file
@@ -41,7 +41,7 @@ echo "...done"
 install_zsh () {
   if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
     # install submodules
-    git submodule init
+    git submodule update --init --recursive
     git submodule update
     # set the default shell to zsh if it isn't currently set to zsh
     if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
