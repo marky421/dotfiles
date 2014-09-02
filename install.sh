@@ -48,9 +48,9 @@ install_zsh () {
         chsh -s $(which zsh)
     fi
     # clone zsh-syntax-highlighting from GitHub only if it isn't already present
-    if [[ ! -d $dir/oh-my-zsh/custom/plugins/zsh-syntax-highlighting/ ]]; then
-        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $dir/oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-    fi
+    #if [[ ! -d $dir/oh-my-zsh/custom/plugins/zsh-syntax-highlighting/ ]]; then
+    #    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $dir/oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+    #fi
   else
     # get operating system
     OS=$(uname);
