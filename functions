@@ -16,23 +16,23 @@ qfind() {
 
 # os-specific ls options
 ########################################
-lsopt="CFh"
-lslopt="CFhl"
+LS="ls -CFh"
+LSL="ls -CFhl"
 if [[ $OS == Darwin ]]; then
-  lsopt="CFGh"
-  lslopt="CFGhl"
+  LS="ls -CFGh"
+  LSL="ls -CFGhl"
 elif [[ $OS == Linux ]]; then
-  lsopt="CFh --color=always"
-  lslopt="CFhl --color=always"
+  LS="ls -CFh --color=always"
+  LSL="ls -CFhl --color=always"
 fi
 
 # cdl - change to a directory and ls its contents
 ########################################
-cdl() { cd $1 && ls -$lsopt; }
+cdl() { cd $1 && eval $LS; }
 
 # cdll - change to a directory and ls -l its contents
 ########################################
-cdll() { cd $1 && ls -$lslopt; }
+cdll() { cd $1 && eval $LSL; }
 
 # mkcd - create a directory and cd to it
 ########################################
