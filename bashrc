@@ -5,7 +5,7 @@
 
 # load bash configuration files
 ########################################
-[[ -a $HOME/.bash_load ]] && . $HOME/.bash_load
+[[ -a $HOME/.bash_load.sh ]] && . $HOME/.bash_load.sh
 
 # customize command prompt
 ########################################

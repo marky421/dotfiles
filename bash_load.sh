@@ -5,19 +5,19 @@
 
 # alias definitions
 ########################################
-[[ -a ~/.aliases ]] && . ~/.aliases
+[[ -a ~/.aliases.sh ]] && . ~/.aliases.sh
 
 # load environment variables
 ########################################
-[[ -a ~/.env ]] && . ~/.env
+[[ -a ~/.env.sh ]] && . ~/.env.sh
 
 # load functions
 ########################################
-[[ -a ~/.functions ]] && . ~/.functions
+[[ -a ~/.functions.sh ]] && . ~/.functions.sh
 
 # load tomcat environment variables
 ########################################
-[[ -a ~/.tomcat ]] && . ~/.tomcat
+[[ -a ~/.tomcat.sh ]] && . ~/.tomcat.sh
 
 # load bash_completion only if installed via node and in bash shell
 ########################################
