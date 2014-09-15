@@ -36,10 +36,10 @@ let g:solarized_termcolors=256 " required for solarized
 " whitespace stuff
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set expandtab       " use spaces instead of tabs                                                               
-set shiftwidth=4    " 1 tab == 4 spaces                                                                        
-set tabstop=4       " 1 tab == 4 spaces                                                                        
-set softtabstop=4   " 1 tab == 4 spaces
-set showtabline=4   " always show tab line
+set shiftwidth=2    " 1 tab == 4 spaces                                                                        
+set tabstop=2       " 1 tab == 4 spaces                                                                        
+set softtabstop=2   " 1 tab == 4 spaces
+set showtabline=2   " always show tab line
 set smartindent     " smart indent                                                                             
 set wrap            " wrap lines                                                                               
 "set nowrap          " don't wrap lines 
