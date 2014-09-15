@@ -26,11 +26,14 @@ set mouse=a         " enable mouse interaction
 
 " vim color options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set t_Co=256                   " enable 256 color mode (needed for molokai)
-set background=dark            " we like a dark background (easier on the eyes)
-colorscheme molokai            " set the default color scheme to molokai
-let g:solarized_termcolors=256 " required for solarized
+set t_Co=256                      " enable 256 color mode (needed for molokai)
+set background=dark               " we like a dark background (easier on the eyes)
+colorscheme molokai               " set the default color scheme to molokai
+let g:solarized_termcolors=256    " required for solarized
 "colorscheme solarized          " set the default color scheme to solarized
+
+" set transparent background
+hi Normal guibg=none ctermbg=none
 
 
 " whitespace stuff
