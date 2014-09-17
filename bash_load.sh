@@ -15,9 +15,9 @@
 ########################################
 [[ -a ~/.functions.sh ]] && . ~/.functions.sh
 
-# load tomcat environment variables
+# load extras file
 ########################################
-[[ -a ~/.tomcat.sh ]] && . ~/.tomcat.sh
+[[ -a ~/.extras.sh ]] && . ~/.extras.sh
 
 # load bash_completion only if installed via node and in bash shell
 ########################################
