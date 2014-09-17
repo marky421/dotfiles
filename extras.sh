@@ -16,6 +16,6 @@ alias tomcat="cd $CATALINA_HOME"
 
 # set identityiq specific environment variables and aliases
 ########################################
-export SPHOME=$CATALINA_HOME/webapps/identityiq
+export SPHOME=$HOME/identityiq
 alias workspace="cd /home/mspain/Developer/workspace/TVA_IIQ" 
 
