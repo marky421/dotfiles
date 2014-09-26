@@ -24,9 +24,14 @@ if [[ $MY_ENVIRONMENT != yes ]]; then
     export ANT_HOME=/usr/share/ant
   fi
 
+  # set postgres host to localhost
+  export PGHOST=localhost
  
-  # set EDITOR to /usr/bin/vim if Vim is installed
-  if [ -f /usr/bin/vim ]; then
+  # set EDITOR to /usr/local/bin/vim if Vim is installed,
+  # otherwise set it to /usr/bin/vim if it's installed
+  if [[ -f /usr/local/bin/vim ]]; then
+    export EDITOR=/usr/local/bin/vim
+  elif [[ -f /usr/bin/vim ]]; then
     export EDITOR=/usr/bin/vim
   fi
 
