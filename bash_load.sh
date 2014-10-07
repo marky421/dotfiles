@@ -5,19 +5,19 @@
 
 # alias definitions
 # --------------------------------------
-[[ -a ~/.aliases.sh ]] && . ~/.aliases.sh
+[[ -a $HOME/.aliases.sh ]] && . $HOME/.aliases.sh
 
 # load environment variables
 # --------------------------------------
-[[ -a ~/.env.sh ]] && . ~/.env.sh
+[[ -a $HOME/.env.sh ]] && . $HOME/.env.sh
 
 # load functions
 # --------------------------------------
-[[ -a ~/.functions.sh ]] && . ~/.functions.sh
+[[ -a $HOME/.functions.sh ]] && . $HOME/.functions.sh
 
 # load extras file
 # --------------------------------------
-[[ -a ~/.extras.sh ]] && . ~/.extras.sh
+[[ -a $HOME/.extras.sh ]] && . $HOME/.extras.sh
 
 # load bash_completion only if installed via node and in bash shell
 # --------------------------------------
@@ -32,4 +32,3 @@ fi
 # load rvm into a shell session *as a function*
 # --------------------------------------
 [[ -a $HOME/.rvm/scripts/rvm ]] && . $HOME/.rvm/scripts/rvm
-
