@@ -1,0 +1,13 @@
+#!/bin/bash
+
+user="Mark"
+hostname="marks-macbook-pro.local"
+
+regex="\b(?:[0-9]{1,3}\.){3}[0-9]{1,3}\b"
+
+ip=$(ping -c 1 ${hostname} | grep -Eo ${regex} | head -1)
+
+cmd="ssh ${user}@${ip}"
+
+echo ${cmd}
+eval ${cmd}

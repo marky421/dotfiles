@@ -1,0 +1,26 @@
+#!/bin/bash
+# ----------------------------------------------------------------------
+# ~/.dotfiles/scripts/bootstrap
+# Mark Spain
+# ----------------------------------------------------------------------
+
+# install rvm
+[[ ! -a $HOME/.rvm/bin/rvm ]] && curl -sSL https://get.rvm.io | bash -s stable --ruby --ignore-dotfiles
+
+# install homebrew
+[[ ! -a /usr/local/bin/brew ]] && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+brew doctor
+brew update
+
+# add homebrew support for brewfiles/caskfiles
+gem install brewdler
+
+# install brew/cask packages
+[[ -a ./Brewfile ]] && brewdler install
+
+# cleanup
+brew update && brew upgrade brew-cask && brew cleanup && brew cask cleanup
+
+! [[ -a "$HOME/Developer" ]] && mkdir $HOME/Developer
+./install.sh
