@@ -45,4 +45,3 @@ source $ZSH/oh-my-zsh.sh
 [[ -a $HOME/.private ]] && . $HOME/.private
 [[ -a $HOME/.profile ]] && . $HOME/.profile  # Read Mac .profile, if present.
 [[ -a $HOME/.bashrc  ]] && . $HOME/.bashrc
-
