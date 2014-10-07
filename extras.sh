@@ -18,4 +18,3 @@ alias tomcat="cd $CATALINA_HOME"
 # --------------------------------------
 export SPHOME=$HOME/identityiq
 alias workspace="cd /home/mspain/Developer/workspace/TVA_IIQ" 
-
