@@ -1,14 +1,14 @@
-######################################################################
-# ~/.aliases
+# ----------------------------------------------------------------------
+# ~/.dotfiles/aliases.sh
 # Mark Spain
-#######################################################################
+# ----------------------------------------------------------------------
 
 # get operating system
-########################################
+# --------------------------------------
 OS=$(uname)
 
 # some useful aliases
-########################################
+# --------------------------------------
 alias mv='mv -i'                        # prompts if overwriting a file
 alias cp='cp -i'                        # prompts if overwriting a file
 alias vi='vim'                          # always use vim instead of vi
@@ -20,12 +20,12 @@ alias ...='cd ../..'                    # go uo two directories
 alias c='clear'                         # clear the screen
 
 # grep aliases
-########################################
+# --------------------------------------
 alias grep='grep --color=always'        # use colors for grep
 alias egrep='egrep --color=always'      # use colors for egrep
 
 # ls aliases
-########################################
+# --------------------------------------
 # os-specific ls options
 if [[ $OS == Darwin ]]; then
   alias ls='ls -CFGh'                   # enhance ls (Mac)
@@ -41,7 +41,7 @@ alias lla='ls -la'                      # give lla desired 'ls -la' behavior
 alias lal='la -al'                      # give lal desired 'ls -al' behavior
 
 # git aliases
-########################################
+# --------------------------------------
 alias gs='git status '
 alias ga='git add '
 alias gb='git branch '
@@ -54,11 +54,11 @@ alias got='git '
 alias get='git '
 
 # MySQL aliases
-########################################
+# --------------------------------------
 alias mysql='mysql -u root'
 
 # friendly version of diff
-########################################
+# --------------------------------------
 alias ezdiff='diff -yiEZbwB --suppress-common-lines'
 
 # Add an "alert" alias for long running commands.  Use like so:

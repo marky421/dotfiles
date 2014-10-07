@@ -1,33 +1,33 @@
 #!/bin/bash
-#######################################################################
-# dotfiles/makesymlinks.sh
+# ----------------------------------------------------------------------
+# ~/.dotfiles/scripts/install.sh
 # Mark Spain
 #
 # This script creates symlinks from the home directory to any desired
-# dotfiles in ~/dotfiles
-#######################################################################
+# dotfiles in ~/.dotfiles
+# ----------------------------------------------------------------------
 
 # variables
-########################################
-dir=$HOME/dotfiles        # dotfiles directory
-oldDir=$HOME/dotfiles_old # old dotfiles backup directory
+# --------------------------------------
+dir=$HOME/.dotfiles        # dotfiles directory
+oldDir=$HOME/.dotfiles_old # old dotfiles backup directory
 # list of files/folders to symlink in homedir
 files="bash_profile bash_load.sh aliases.sh env.sh functions.sh extras.sh bashrc gitconfig vim zshrc oh-my-zsh private"
 
 # create dotfiles_old in homedir
-########################################
+# --------------------------------------
 echo "Creating $oldDir for backup of any existing dotfiles in ~"
 mkdir -p $oldDir
 echo "...done"
 
 # change to the dotfiles directory
-########################################
+# --------------------------------------
 echo "Changing to the $dir directory"
 cd $dir
 echo "...done"
 
 # install zsh customization files
-########################################
+# --------------------------------------
 install_zsh () {
   if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
     # install submodules
@@ -58,7 +58,7 @@ install_zsh () {
 install_zsh
 
 # backup old dotfiles and create symlinks to new ones
-########################################
+# --------------------------------------
 echo "Moving any existing dotfiles from ~ to $oldDir"
 for file in $files; do 
     mv $HOME/.$file $HOME/dotfiles_old/

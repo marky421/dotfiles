@@ -1,14 +1,14 @@
-######################################################################
-# ~/.env
+# ----------------------------------------------------------------------
+# ~/.dotfiles/env.sh
 # Mark Spain
-######################################################################
+# ----------------------------------------------------------------------
 
 # get operating system
-########################################
+# --------------------------------------
 OS=$(uname)
 
 # environment variables
-########################################
+# --------------------------------------
 if [[ $MY_ENVIRONMENT != yes ]]; then 
   # explicitly configured $PATH variable
   export PATH=/usr/local/git/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/opt/local/bin:/opt/local/sbin:/usr/X11/bin:$PATH
