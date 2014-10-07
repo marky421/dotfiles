@@ -7,6 +7,8 @@
 # dotfiles in ~/.dotfiles
 # ----------------------------------------------------------------------
 
+echo "Running install.sh"
+
 # variables
 # --------------------------------------
 dir=$HOME/.dotfiles        # dotfiles directory

@@ -5,97 +5,96 @@
 # ----------------------------------------------------------------------
 
 # tap the repos
-tap 'caskroom/homebrew-cask'
-tap 'caskroom/fonts'
+brew tap caskroom/homebrew-cask
+brew tap caskroom/fonts
 
 # install brew packages
-brew 'autoconf'
-brew 'automake'
-brew 'bash-completion2'
-brew 'cowsay'
-brew 'faac'
-brew 'faad2'
-brew 'ffmpeg'
-brew 'fortune'
-brew 'gdbm'
-brew 'gmp'
-brew 'gnutls'
-brew 'json-c'
-brew 'lame'
-brew 'libao'
-brew 'libgcrypt'
-brew 'libgpg-error'
-brew 'libksba'
-brew 'libtasn1'
-brew 'libtool'
-brew 'libyaml'
-brew 'mad'
-brew 'makedepend'
-brew 'nettle'
-brew 'node'
-brew 'openssl'
-brew 'p7zip'
-brew 'pianobar'
-brew 'pkg-config'
-brew 'python'
-brew 'readline'
-brew 'sqlite'
-brew 'texi2html'
-brew 'vim'
-brew 'wget'
-brew 'x264'
-brew 'xvid'
-brew 'xz'
-brew 'yasm'
-
-# install cask
-brew 'brew-cask'
+brew install autoconf
+brew install automake
+brew install bash-completion2
+brew install brew-cask
+brew install cowsay
+brew install faac
+brew install faad2
+brew install ffmpeg
+brew install fortune
+brew install gdbm
+brew install gmp
+brew install gnutls
+brew install json-c
+brew install lame
+brew install libao
+brew install libgcrypt
+brew install libgpg-error
+brew install libksba
+brew install libtasn1
+brew install libtool
+brew install libyaml
+brew install mad
+brew install makedepend
+brew install nettle
+brew install node
+brew install openssl
+brew install p7zip
+brew install pianobar
+brew install pkg-config
+brew install python
+brew install readline
+brew install sqlite
+brew install texi2html
+brew install vim
+brew install wget
+brew install x264
+brew install xvid
+brew install xz
+brew install yasm
 
 # install fonts
-cask 'font-source-code-pro'
+brew cask install font-source-code-pro
 
 # install casks
-cask 'air-connect'
-cask 'airdisplay'
-cask 'appcleaner'
-cask 'arduino'
-cask 'atom'
-cask 'bartender'
-cask 'caffeine'
-cask 'coda'
-cask 'codebox'
-cask 'codekit'
-cask 'curse-client'
-cask 'dropbox'
-cask 'evernote'
-cask 'firefox'
-cask 'github'
-cask 'google-chrome'
-cask 'google-drive'
-cask 'grandperspective'
-cask 'imageoptim'
-cask 'iterm2'
-cask 'league-of-legends'
-cask 'macgdbp'
-cask 'macpaw-gemini'
-cask 'mamp'
-cask 'music-manager'
-cask 'mysqlworkbench'
-cask 'onyx'
-cask 'pandora-one'
-cask 'parallels'
-cask 'remote-desktop-connection'
-cask 'sequel-pro'
-cask 'sizeup'
-cask 'sketch'
-cask 'skype'
-cask 'steam'
-cask 'sublime-text'
-cask 'teamviewer'
-cask 'transmit'
-cask 'tuneup'
-cask 'unrarx'
-cask 'vlc'
-cask 'eclipse-ide'
-cask 'istat-menus'
-cask 'xscope'
+brew cask install adobe-air
+brew cask install air-connect
+brew cask install airdisplay
+brew cask install appcleaner
+brew cask install arduino
+brew cask install atom
+brew cask install bartender
+brew cask install caffeine
+brew cask install coda
+brew cask install codebox
+brew cask install codekit
+brew cask install curse-client
+brew cask install dropbox
+brew cask install evernote
+brew cask install firefox
+brew cask install github
+brew cask install google-chrome
+brew cask install google-drive
+brew cask install grandperspective
+brew cask install imageoptim
+brew cask install iterm2
+brew cask install league-of-legends
+brew cask install macgdbp
+brew cask install macpaw-gemini
+brew cask install mamp
+brew cask install music-manager
+brew cask install mysqlworkbench
+brew cask install onyx
+brew cask install pandora-one
+#brew cask install parallels
+brew cask install remote-desktop-connection
+brew cask install sequel-pro
+brew cask install sizeup
+brew cask install sketch
+brew cask install skype
+brew cask install steam
+brew cask install sublime-text
+brew cask install teamviewer
+brew cask install transmit
+brew cask install tuneup
+brew cask install unrarx
+brew cask install vlc
+brew cask install eclipse-ide
+brew cask install istat-menus
+brew cask install xscope

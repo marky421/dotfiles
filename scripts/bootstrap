@@ -4,32 +4,98 @@
 # Mark Spain
 # ----------------------------------------------------------------------
 
+echo ""
+echo "------------------------------------------------------------------------"
+echo "                    Mark Spain's bootstrap script"
+echo "------------------------------------------------------------------------"
+echo "  This script is designed to install all of the applications/packages   "
+echo "  that I would want on a new computer. It will also load my dotfiles.   "
+echo ""
+
 # install rvm
-[[ ! -a $HOME/.rvm/bin/rvm ]] && curl -sSL https://get.rvm.io | bash -s stable --ruby --ignore-dotfiles
+# --------------------------------------
+echo "Checking for rvm..."
+if [[ ! -a $HOME/.rvm/bin/rvm ]]; then
+  echo "Installing rvm..."
+  curl -sSL https://get.rvm.io | bash -s -- --ignore-dotfiles
+  [[ -a $HOME/.rvm/scripts/rvm ]] && . $HOME/.rvm/scripts/rvm
+  echo "Finished installing rvm"
+  if [[ -z $(rvm alias show default) ]]; then  
+    echo "Installing ruby-head..."
+    rvm install ruby-head
+    echo "Finished installing ruby-head"
+    echo ""
+    echo "Setting default ruby to ruby-head..."
+    rvm use ruby-head --default
+  fi
+else 
+  echo "Found rvm"
+fi
+echo ""
 
 # install homebrew
-[[ ! -a /usr/local/bin/brew ]] && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# --------------------------------------
+echo "Checking for homebrew..."
+if [[ ! -a /usr/local/bin/brew ]]; then
+  echo "Installing homebrew..."
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  echo "Finished installing homebrew"
+else
+  echo "Found homebrew"
+fi
+echo ""
 
 # install homebrew casks in /Applications instead of ~/Applications
+# --------------------------------------
+echo "Homebrew casks will install in '/Applications' instead of '~/Applications'"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+echo ""
 
 # make sure everything is good to go with homebrew
+# --------------------------------------
+echo "Running 'brew doctor'..."
 brew doctor
+echo "Running 'brew update'..."
 brew update
-
-# add homebrew support for brewfiles/caskfiles
-if [[ -z $(gem list | grep "brewdler") ]]; then
-  echo "Installing brewdler, need permission..."
-  sudo gem install brewdler
-fi
+echo ""
 
 # install brew/cask packages
-[[ -a ./Brewfile ]] && brewdler install
+# --------------------------------------
+echo "Checking for Brewfile..."
+if [[ -a ./Brewfile ]]; then
+  echo "Installing brews/casks from Brewfile..."
+  . ./Brewfile
+  echo "Finished installing brews/casks from Brewfile"
+else
+  echo "No Brewfile found"
+fi
+echo ""
 
 # cleanup
-brew update && brew upgrade brew-cask && brew cleanup && brew cask cleanup
+# --------------------------------------
+echo "Cleaning up..."
+brew update && brew cleanup && brew cask cleanup
+echo "Finished cleaning up"
+echo ""
 
-! [[ -a "$HOME/Developer" ]] && mkdir $HOME/Developer
+# create my dev folder if it doesn't exist
+# --------------------------------------
+echo "Cecking for dev folder..."
+if [[ ! -a $HOME/Developer ]]; then
+  echo "Creating dev folder..."
+  mkdir $HOME/Developer
+  echo "Finished creating dev folder: $HOME/Developer"
+else
+  echo "Found dev folder"
+fi
+echo ""
 
+# install my dotfiles
+# --------------------------------------
+echo "Install my dotfiles..."
 ./install.sh
+echo "Finished installing my dotfiles"
+echo ""
+
+echo "All done. Enjoy your new computer!"
 
