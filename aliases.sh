@@ -18,7 +18,7 @@ alias path='echo -e ${PATH//:/\\n}'     # print $PATH line by line
 alias ..='cd ..'                        # go up one directory
 alias ...='cd ../..'                    # go uo two directories
 alias c='clear'                         # clear the screen
-alias tail="tail -n 1000 -f"            # enhance tail
+alias tf='tail -n 1000 -f '             # enhance tail
 
 # grep aliases
 # --------------------------------------
@@ -64,9 +64,9 @@ alias ezdiff='diff -yiEZbwB --suppress-common-lines'
 
 # shortcuts to folders
 # --------------------------------------
-alias dev="cd $HOME/Developer"
+alias dev='cd $HOME/Developer'
 
 # just for fun
 # --------------------------------------
-alias starwars="telnet towel.blinkenlights.nl"
-alias lol="fortune | cowsay | lolcat"
+alias starwars='telnet towel.blinkenlights.nl'
+alias lol='fortune | cowsay | lolcat'
