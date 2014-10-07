@@ -10,11 +10,18 @@
 # install homebrew
 [[ ! -a /usr/local/bin/brew ]] && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+# install homebrew casks in /Applications instead of ~/Applications
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+# make sure everything is good to go with homebrew
 brew doctor
 brew update
 
 # add homebrew support for brewfiles/caskfiles
-gem install brewdler
+if [[ -z $(gem list | grep "brewdler") ]]; then
+  echo "Installing brewdler, need permission..."
+  sudo gem install brewdler
+fi
 
 # install brew/cask packages
 [[ -a ./Brewfile ]] && brewdler install
@@ -23,4 +30,6 @@ gem install brewdler
 brew update && brew upgrade brew-cask && brew cleanup && brew cask cleanup
 
 ! [[ -a "$HOME/Developer" ]] && mkdir $HOME/Developer
+
 ./install.sh
+
