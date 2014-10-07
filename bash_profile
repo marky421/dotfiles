@@ -6,4 +6,3 @@
 # Load custom shell settings
 # --------------------------------------
 [[ -a $HOME/.bashrc ]] && . $HOME/.bashrc
-
