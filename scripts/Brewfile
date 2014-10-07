@@ -74,6 +74,7 @@ brew cask install google-drive
 brew cask install grandperspective
 brew cask install imageoptim
 brew cask install iterm2
+brew cask install java
 brew cask install league-of-legends
 brew cask install macgdbp
 brew cask install macpaw-gemini
