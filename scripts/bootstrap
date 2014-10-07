@@ -8,8 +8,8 @@ echo ""
 echo "------------------------------------------------------------------------"
 echo "                    Mark Spain's bootstrap script"
 echo "------------------------------------------------------------------------"
-echo "  This script is designed to install all of the applications/packages   "
-echo "  that I would want on a new computer. It will also load my dotfiles.   "
+echo "This script is designed to install all of the applications/packages     "
+echo "that I would want on a new computer. It will also load my dotfiles.     "
 echo ""
 
 # install rvm
