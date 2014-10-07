@@ -45,8 +45,12 @@ install_zsh
 # --------------------------------------
 echo "Moving any existing dotfiles from ~ to $oldDir"
 for file in $files; do 
+  if [[ -h $HOME/.$file ]]; then
+    rm $HOME/.$file
+  elif [[ -f $HOME/.file ]]; then
     mv $HOME/.$file $oldDir/$file
-    echo "Creating symlink to $file in home directory"
-    ln -s $dir/$file $HOME/.$file
+  fi
+  echo "Creating symlink to $file in home directory"
+  ln -s $dir/$file $HOME/.$file
 done
 echo "...done"
