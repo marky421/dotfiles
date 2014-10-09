@@ -70,3 +70,5 @@ alias dev='cd $HOME/Developer'
 # --------------------------------------
 alias starwars='telnet towel.blinkenlights.nl'
 alias lol='fortune | cowsay | lolcat'
+alias pandora='/usr/local/bin/pianobar'
+
