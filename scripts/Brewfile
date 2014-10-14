@@ -9,45 +9,18 @@ brew tap caskroom/homebrew-cask
 brew tap caskroom/fonts
 
 # install brew packages
-brew install autoconf
-brew install automake
 brew install bash-completion2
 brew install brew-cask
 brew install cowsay
-brew install faac
-brew install faad2
-brew install ffmpeg
 brew install fortune
-brew install gdbm
-brew install gmp
-brew install gnutls
-brew install json-c
-brew install lame
-brew install libao
-brew install libgcrypt
-brew install libgpg-error
 brew install libksba
-brew install libtasn1
 brew install libtool
 brew install libyaml
-brew install mad
-brew install makedepend
-brew install nettle
 brew install node
-brew install openssl
 brew install p7zip
 brew install pianobar
-brew install pkg-config
-brew install python
-brew install readline
-brew install sqlite
-brew install texi2html
 brew install vim
 brew install wget
-brew install x264
-brew install xvid
-brew install xz
-brew install yasm
 
 # install fonts
 brew cask install font-source-code-pro
