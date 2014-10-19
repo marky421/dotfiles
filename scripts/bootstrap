@@ -62,9 +62,9 @@ echo ""
 # install brew/cask packages
 # --------------------------------------
 echo "Checking for Brewfile..."
-if [[ -a ./Brewfile ]]; then
+if [[ -a $HOME/.dotfiles/scripts/Brewfile ]]; then
   echo "Installing brews/casks from Brewfile..."
-  . ./Brewfile
+  . $HOME/.dotfiles/scripts/Brewfile
   echo "Finished installing brews/casks from Brewfile"
 else
   echo "No Brewfile found"
@@ -93,7 +93,7 @@ echo ""
 # install my dotfiles
 # --------------------------------------
 echo "Install my dotfiles..."
-./install.sh
+$HOME/.dotfiles/scripts/install.sh
 echo "Finished installing my dotfiles"
 echo ""
 
