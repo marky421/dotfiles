@@ -13,9 +13,9 @@ brew install bash-completion2
 brew install brew-cask
 brew install cowsay
 brew install fortune
-brew install libksba
-brew install libtool
-brew install libyaml
+#brew install libksba
+#brew install libtool
+#brew install libyaml
 brew install node
 brew install p7zip
 brew install pianobar
