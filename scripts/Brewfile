@@ -28,6 +28,7 @@ brew cask install font-source-code-pro
 # install casks
 brew cask install adobe-air
 brew cask install air-connect
+brew cask install airdisplay
 brew cask install appcleaner
 brew cask install arduino
 brew cask install atom
