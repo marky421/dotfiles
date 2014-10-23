@@ -29,6 +29,7 @@ brew cask install airdisplay
 brew cask install appcleaner
 brew cask install arduino
 brew cask install atom
+brew cask install audacity
 brew cask install bartender
 brew cask install coda
 brew cask install codekit
@@ -47,11 +48,11 @@ brew cask install java
 brew cask install league-of-legends
 brew cask install macgdbp
 brew cask install macpaw-gemini
-brew cask install mamp # make sure this is mamp pro
+brew cask install mamp
 brew cask install music-manager
 brew cask install onyx
 brew cask install pandora-one
-#brew cask install parallels
+brew cask install parallels
 #brew cask install sizeup # testing BetterSnapTool instead
 brew cask install skype
 brew cask install steam
