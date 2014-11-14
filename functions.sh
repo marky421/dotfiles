@@ -10,8 +10,22 @@ OS=$(uname)
 # qfind - used to quickly find files that contain a string in a directory
 # --------------------------------------
 qfind() {
-  find . -exec grep -l -s $1 {} \;
-  return 0
+  if [ -z $1 ] || [ $1 == "--help" ] || [ $1 == "-h" ]; then
+    echo "qfind - used to quickly find files that contain a string in a directory"
+    echo "Usage: qfind DIRECTORY STRING"
+    echo "  or:  qfind STRING"
+    echo ""
+    echo "Searches for files containing STRING recursively from DIRECTORY,"
+    echo "  or the current directory if  DIRECOTRY is omitted"
+    return 0
+  fi
+  dir=$1
+  str=$2
+  if [ -z $2 ]; then
+    dir=.
+    str=$1
+  fi
+  find $dir -type f -print0 | xargs -0 grep -l $str;
 }
 
 # os-specific ls options (for use in cdl() and cdll())
