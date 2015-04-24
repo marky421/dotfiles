@@ -54,7 +54,7 @@ brew cask install music-manager
 brew cask install onyx
 brew cask install pandora-one
 brew cask install parallels
-#brew cask install sizeup # testing BetterSnapTool instead
+brew cask install sizeup
 brew cask install skype
 brew cask install steam
 brew cask install sublime-text
