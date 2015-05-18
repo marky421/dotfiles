@@ -19,3 +19,13 @@ alias tomcat="cd $CATALINA_HOME"
 # --------------------------------------
 export SPHOME=$CATALINA_HOME/webapps/identityiq
 alias workspace="cd ~/Developer/workspace"
+BUILD_SCRIPT_DIR="~/Developer/workspace/IIQ"
+BUILD_SCRIPT="./build.sh"
+alias build="cd $BUILD_SCRIPT_DIR && $BUILD_SCRIPT war && cd -"
+alias buildall="cd $BUILD_SCRIPT_DIR && $BUILD_SCRIPT deploy && $BUILD_SCRIPT cycle && $BUILD_SCRIPT importdynamic && cd -"
+alias buildxml="cd $BUILD_SCRIPT_DIR && $BUILD_SCRIPT war && $BUILD_SCRIPT importdynamic && cd -"
+alias deploy="cd $BUILD_SCRIPT_DIR && $BUILD_SCRIPT deploy && cd -"
+alias bounce="cd $BUILD_SCRIPT_DIR && $BUILD_SCRIPT cycle && cd -"
+alias clean="cd $BUILD_SCRIPT_DIR && $BUILD_SCRIPT clean && cd -"
+alias tfl="less +F /var/log/iiq/sailpoint.log"
+alias vimlog="vim + /var/log/iiq/sailpoint.log"
