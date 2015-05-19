@@ -19,6 +19,7 @@ alias ..='cd ..'                        # go up one directory
 alias ...='cd ../..'                    # go uo two directories
 alias c='clear'                         # clear the screen
 alias tf='tail -n 1000 -f '             # enhance tail
+alias lf='less +F '                     # less with tailing on
 
 # grep aliases
 # --------------------------------------
