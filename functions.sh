@@ -10,7 +10,7 @@ OS=$(uname)
 # qfind - used to quickly find files that contain a string in a directory
 # --------------------------------------
 qfind() {
-  if [ -z $1 ] || [ $1 == "--help" ] || [ $1 == "-h" ]; then
+  if [[ -z $1 ]] || [[ $1 == "--help" ]] || [[ $1 == "-h" ]]; then
     echo "qfind - used to quickly find files that contain a string in a directory"
     echo "Usage: qfind DIRECTORY STRING"
     echo "  or:  qfind STRING"
@@ -21,7 +21,7 @@ qfind() {
   fi
   dir=$1
   str=$2
-  if [ -z $2 ]; then
+  if [[ -z $2 ]]; then
     dir=.
     str=$1
   fi
