@@ -29,13 +29,13 @@ files="aliases.sh bashrc bash_load.sh bash_profile bin env.sh extras.sh function
 if ! [[ -f /bin/zsh || -f /usr/bin/zsh ]]; then
   # install zsh using homebrew or apt-get depending on os
   [[ $OS == Darwin ]] && brew install zsh
-  [[ $OS == Linux  ]] && sudo apt-get install zsh
+  [[ $OS == Linux  ]] && sudo apt-get install -y zsh
 fi
 
 if ! [[ -f /bin/vim || -f /usr/bin/vim ]]; then
   # install vim using homebrew or apt-get depending on os
   [[ $OS == Darwin ]] && brew install vim
-  [[ $OS == Linux  ]] && sudo apt-get install vim
+  [[ $OS == Linux  ]] && sudo apt-get install -y vim
 fi
   
 # install submodules (customization files)
