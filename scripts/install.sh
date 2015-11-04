@@ -42,7 +42,7 @@ fi
 git submodule update --init --recursive
 
 # set the default shell to zsh if it isn't currently set to zsh
-[[ ! $(echo $SHELL) == $(which zsh) ]] && chsh -s $(which zsh)
+[[ ! $(echo $SHELL) == $(which zsh) ]] && sudo usermod -s $(which zsh) $USER
 
 # backup old dotfiles and create symlinks to new ones
 # --------------------------------------
