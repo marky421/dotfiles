@@ -20,6 +20,7 @@ alias ...='cd ../..'                    # go uo two directories
 alias c='clear'                         # clear the screen
 alias tf='tail -n 1000 -f '             # enhance tail
 alias lf='less +F '                     # less with tailing on
+alias tree='tree -C'                    # always user colors
 
 # grep aliases
 # --------------------------------------
