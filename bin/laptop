@@ -1,7 +1,7 @@
 #!/bin/bash
 
-user="Mark"
-hostname="marks-macbook-pro.local"
+user="maspain"
+hostname="markbook-pro.local"
 
 regex="\b(?:[0-9]{1,3}\.){3}[0-9]{1,3}\b"
 
