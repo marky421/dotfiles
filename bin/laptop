@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cmd="ssh maspain@markbook-pro.local
+cmd="ssh maspain@markbook-pro.local"
 echo ${cmd}
 eval ${cmd}
