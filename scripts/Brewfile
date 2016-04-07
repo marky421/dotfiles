@@ -59,6 +59,7 @@ brew cask install skype
 brew cask install steam
 brew cask install sublime-text
 brew cask install teamviewer
+brew cask install the-unarchiver
 brew cask install transmission
 brew cask install unrarx
 brew cask install vlc
