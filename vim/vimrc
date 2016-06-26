@@ -33,7 +33,7 @@ let g:solarized_termcolors=256    " required for solarized
 "colorscheme solarized          " set the default color scheme to solarized
 
 " set transparent background
-hi Normal guibg=none ctermbg=none
+hi Normal guibg=NONE ctermbg=NONE
 
 
 " whitespace stuff
