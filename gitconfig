@@ -7,6 +7,9 @@
   email = markyspain421@gmail.com
   name = Mark Spain
 
+[core]
+  editor = vim
+
 [color]
   branch = auto
   diff = auto
