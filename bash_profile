@@ -1,3 +1,4 @@
+source ~/.profile
 # ----------------------------------------------------------------------
 # ~/.dotfiles/bash_profile
 # Mark Spain
