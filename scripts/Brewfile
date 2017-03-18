@@ -52,6 +52,7 @@ brew cask install mamp
 brew cask install music-manager
 brew cask install onyx
 brew cask install pandora-one
+brew cask install vnc-viewer
 brew cask install sizeup
 brew cask install skype
 brew cask install steam
