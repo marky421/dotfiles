@@ -41,7 +41,7 @@ alias l='ls'                            # enable use of l for ls
 alias ll='ls -l'                        # give ll desired 'ls -l' behavior
 alias la='ls -a'                        # give la desired 'ls -a' behavior
 alias lla='ls -la'                      # give lla desired 'ls -la' behavior
-alias lal='la -al'                      # give lal desired 'ls -al' behavior
+alias lal='ls -al'                      # give lal desired 'ls -al' behavior
 
 # git aliases
 # --------------------------------------
