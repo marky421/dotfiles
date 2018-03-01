@@ -37,6 +37,12 @@ if ! [[ -f /bin/vim || -f /usr/bin/vim ]]; then
   [[ $OS == Darwin ]] && brew install vim
   [[ $OS == Linux  ]] && sudo apt-get install -y vim
 fi
+
+if ! [[ -f /usr/bin/neofetch || -f /usr/local/bin/neofetch ]]; then
+  # install neofetch using homebrew of apt-get depending on OS
+  [[ $OS == Darwin ]] && brew install neofetch
+  [[ $OS == Linux  ]] && sudo apt-get install -y neofetch
+fi
   
 # install submodules (customization files)
 git submodule update --init --recursive
