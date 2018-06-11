@@ -27,7 +27,7 @@ fi
 
 # load nvm
 # --------------------------------------
-[[ -a $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh # This loads nvm
+[[ -a $NVM_DIR/nvm.sh ]] && . $NVM_DIR/nvm.sh # This loads nvm
 
 # load rvm into a shell session *as a function*
 # --------------------------------------
