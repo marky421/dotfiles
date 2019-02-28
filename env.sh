@@ -40,6 +40,7 @@ elif [[ -f /usr/bin/vim ]]; then
 fi
 
 export RVM_HOME=$HOME/.rvm
+export NVM_DIR=$HOME/.nvm
 export PATH=$JAVA_HOME/bin:$ANT_HOME/bin:$RVM_HOME/bin:$PATH
 
 # add custom bin folder to PATH
