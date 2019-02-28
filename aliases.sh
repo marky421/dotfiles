@@ -47,6 +47,7 @@ alias lal='ls -al'                      # give lal desired 'ls -al' behavior
 # --------------------------------------
 alias gs='git status '
 alias ga='git add '
+alias gp='git push'
 alias gb='git branch '
 alias gc='git commit'
 alias gd='git diff'
