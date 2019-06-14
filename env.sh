@@ -17,7 +17,7 @@ export PATH=/usr/local/git/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
 
 # os-specific java and ant environment variables
 if [[ $OS == Darwin ]]; then
-  export JAVA_HOME=$(/usr/libexec/java_home -v 1.8) #/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home
+  export JAVA_HOME=$(/usr/libexec/java_home)
   export ANT_HOME=/usr/local/apache-ant
   export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 elif [[ $OS == Linux ]]; then
