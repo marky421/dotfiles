@@ -25,35 +25,29 @@ brew install wget
 brew cask install font-source-code-pro
 
 # install casks
-brew cask install adobe-air
 brew cask install appcleaner
 brew cask install arduino
-brew cask install atom
 brew cask install bartender
 brew cask install coda
 brew cask install codekit
-brew cask install curse
 brew cask install dropbox
-brew cask install eclipse-ide
-brew cask install flux
 brew cask install firefox
-brew cask install github-desktop
 brew cask install google-chrome
 brew cask install google-drive
 brew cask install grandperspective
-brew cask install imageoptim
 brew cask install iterm2
 brew cask install istat-menus
 brew cask install java
 brew cask install lastpass
 brew cask install league-of-legends
 brew cask install macgdbp
+brew cask install macs-fan-control
 brew cask install gemini
 brew cask install mamp
 brew cask install music-manager
 brew cask install onyx
-brew cask install pandora-one
 brew cask install vnc-viewer
+brew cask install real-vnc
 brew cask install sizeup
 brew cask install skype
 brew cask install steam
