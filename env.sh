@@ -49,6 +49,6 @@ export PATH=$HOME/bin:$HOME/.bin:$PATH
 # set the man path
 export MANPATH=/usr/local/man:$MANPATH
 
-# setup docker
-eval "$(docker-machine env default)"
+# setup docker-machine
+command -v docker-machine >/dev/null 2>&1 && eval "$(docker-machine env default)"
 
