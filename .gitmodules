@@ -31,8 +31,8 @@
   url = https://github.com/vim-ruby/vim-ruby.git
   ignore = dirty
 [submodule "vim/bundle/vim-json"]
-  path = vim/bundle/vim-json
-  url = https://github.com/elzr/vim-json.git
+	path = vim/bundle/vim-json
+	url = https://github.com/elzr/vim-json
   ignore = dirty
 [submodule "oh-my-zsh"]
   path = oh-my-zsh
