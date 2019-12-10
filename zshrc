@@ -40,6 +40,9 @@ plugins=(npm python sublime sudo web-search zsh-syntax-highlighting)
 # --------------------------------------
 source $ZSH/oh-my-zsh.sh
 
+# unset partial line indicators (mainly for Windows)
+unsetopt prompt_cr prompt_sp
+
 # source other configuration files
 # --------------------------------------
 [[ -a $HOME/.private ]] && . $HOME/.private
