@@ -30,3 +30,8 @@ Here's a quick breakdown of what happens when you run the setup script:
 ```
 $ git clone https://github.com/marky421/dotfiles.git ~/.dotfiles && ~/.dotfiles/scripts/install.sh
 ```
+
+If using ConEmu on windows, import the 'ConEmu_Mark_Spain.xml' file to get my configuration.
+This assume that the Source Code Variable fonts from Adobe (open source) have been installed.
+My ConEmu configuration uses zsh on wsl via bash! zsh is launched via bash in order to 
+get around an issue with colors when using vim, particularly when scrolling.
