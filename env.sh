@@ -44,7 +44,7 @@ export NVM_DIR=$HOME/.nvm
 export PATH=$JAVA_HOME/bin:$ANT_HOME/bin:$RVM_HOME/bin:$PATH
 
 # add custom bin folder to PATH
-export PATH=$HOME/bin:$HOME/.bin:$PATH
+export PATH=$HOME/bin:$HOME/.bin:$HOME/.local/bin:$PATH
 
 # set the man path
 export MANPATH=/usr/local/man:$MANPATH
