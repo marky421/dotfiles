@@ -20,7 +20,9 @@ if [[ $OS == Darwin ]]; then
   export JAVA_HOME=$(/usr/libexec/java_home)
   export ANT_HOME=/usr/local/apache-ant
   export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-  export PATH=/opt/homebrew/bin:$PATH
+  if  [[ -x "$(command -v brew)" ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  fi
 elif [[ $OS == Linux ]]; then
   export OPENDS_JAVA_HOME=/usr/lib/jvm/java-6-oracle
   #export JAVA_HOME=/usr/lib/jvm/java-7-oracle
