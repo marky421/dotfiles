@@ -36,9 +36,9 @@ echo ""
 # install homebrew
 # --------------------------------------
 echo "Checking for homebrew..."
-if [[ ! -a /usr/local/bin/brew ]]; then
+if  [[ ! -x "$(command -v brew)" ]]; then
   echo "Installing homebrew..."
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   echo "Finished installing homebrew"
 else
   echo "Found homebrew"
