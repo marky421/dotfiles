@@ -15,11 +15,12 @@ OS=$(uname)
 # explicitly configured $PATH variable
 export PATH=/usr/local/git/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/X11/bin
 
-# os-specific java and ant environment variables
+# os-specific environment variables
 if [[ $OS == Darwin ]]; then
   export JAVA_HOME=$(/usr/libexec/java_home)
   export ANT_HOME=/usr/local/apache-ant
   export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+  export PATH=/opt/homebrew/bin:$PATH
 elif [[ $OS == Linux ]]; then
   export OPENDS_JAVA_HOME=/usr/lib/jvm/java-6-oracle
   #export JAVA_HOME=/usr/lib/jvm/java-7-oracle
