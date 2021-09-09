@@ -31,8 +31,16 @@
   url = https://github.com/vim-ruby/vim-ruby.git
   ignore = dirty
 [submodule "vim/bundle/vim-json"]
-	path = vim/bundle/vim-json
-	url = https://github.com/elzr/vim-json
+  path = vim/bundle/vim-json
+  url = https://github.com/elzr/vim-json
+  ignore = dirty
+[submodule "vim/bundle/indentLine"]
+  path = vim/bundle/indentLine
+  url = https://github.com/Yggdroot/indentLine.git
+  ignore = dirty
+[submodule "vim/bundle/vim-yaml-folds"]
+  path = vim/bundle/vim-yaml-folds
+  url = https://github.com/pedrohdz/vim-yaml-folds.git
   ignore = dirty
 [submodule "oh-my-zsh"]
   path = oh-my-zsh

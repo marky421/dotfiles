@@ -34,7 +34,7 @@ COMPLETION_WAITING_DOTS="true"
 
 # load plugins (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # --------------------------------------
-plugins=(npm python sublime sudo web-search zsh-syntax-highlighting docker docker-compose)
+plugins=(npm python sublime sudo web-search common-aliases colored-man-pages command-not-found zsh-syntax-highlighting docker docker-compose)
 
 # activate oh-my-zsh
 # --------------------------------------

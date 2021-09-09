@@ -24,25 +24,40 @@ cd $dir
 # --------------------------------------
 files="aliases.sh bashrc bash_load.sh bash_profile bin env.sh extras.sh functions.sh gitconfig oh-my-zsh private vim zshrc"
 
-# install zsh, vim
+# install zsh, vim, neofetch, htop
 # --------------------------------------
-if ! [[ -f /bin/zsh || -f /usr/bin/zsh ]]; then
-  # install zsh using homebrew or apt-get depending on os
-  [[ $OS == Darwin ]] && brew install zsh
-  [[ $OS == Linux  ]] && sudo apt-get install -y zsh
-fi
+packages="zsh vim neofetch htop"
+for package in $packages; do
+  if ! [[ -f /bin/$package || -f /usr/bin/$package || -f /usr/local/bin/$package ]]; then
+    # install using homebrew or apt dpending on OS
+    [[ $OS == Darwin ]] && brew install $package
+    [[ $OS == Linux  ]] && sudo apt install -y $package
+  fi
+done
 
-if ! [[ -f /bin/vim || -f /usr/bin/vim ]]; then
-  # install vim using homebrew or apt-get depending on os
-  [[ $OS == Darwin ]] && brew install vim
-  [[ $OS == Linux  ]] && sudo apt-get install -y vim
-fi
-
-if ! [[ -f /usr/bin/neofetch || -f /usr/local/bin/neofetch ]]; then
-  # install neofetch using homebrew of apt-get depending on OS
-  [[ $OS == Darwin ]] && brew install neofetch
-  [[ $OS == Linux  ]] && sudo apt-get install -y neofetch
-fi
+#if ! [[ -f /bin/zsh || -f /usr/bin/zsh || -f /usr/local/bin/zsh ]]; then
+#  # install zsh using homebrew or apt depending on OS
+#  [[ $OS == Darwin ]] && brew install zsh
+#  [[ $OS == Linux  ]] && sudo apt install -y zsh
+#fi
+#
+#if ! [[ -f /bin/vim || -f /usr/bin/vim || -f usr/local/bin/vim ]]; then
+#  # install vim using homebrew or apt depending on OS
+#  [[ $OS == Darwin ]] && brew install vim
+#  [[ $OS == Linux  ]] && sudo apt install -y vim
+#fi
+#
+#if ! [[ -f /bin/neofetch || -f /usr/bin/neofetch || -f /usr/local/bin/neofetch ]]; then
+#  # install neofetch using homebrew or apt depending on OS
+#  [[ $OS == Darwin ]] && brew install neofetch
+#  [[ $OS == Linux  ]] && sudo apt install -y neofetch
+#fi
+#
+#if ! [[ -f /bin/htop || -f /usr/bin/htop || -f /usr/local/bin/htop ]]; then
+#  # install htop using homebrew or apt depending on OS
+#  [[ $OS == Darwin ]] && brew install htop
+#  [[ $OS == Linux  ]] && sudo apt install -y htop
+#fi
   
 # install submodules (customization files)
 git submodule update --init --recursive
@@ -55,9 +70,10 @@ git submodule update --init --recursive
 echo "Moving any existing dotfiles from ~ to $oldDir"
 for file in $files; do 
   if [[ -h $HOME/.$file ]]; then
-    rm $HOME/.$file
+    sudo rm -f $HOME/.$file
   elif [[ -f $HOME/.file ]]; then
-    mv $HOME/.$file $oldDir/$file
+    cp $HOME/.$file $oldDir/$file
+    sudo rm -f $HOME/.$file
   fi
   echo "Creating symlink to $file in home directory"
   ln -s $dir/$file $HOME/.$file
