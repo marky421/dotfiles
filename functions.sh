@@ -60,7 +60,7 @@ mkcd() { mkdir -p $1 && cd $1; }
 
 # ff - search current directory for specified pattern
 # --------------------------------------
-unalias ff
+unalias ff 2>/dev/null
 ff() { eval $LSLA | grep -i --color=always "$1"; }
 
 # psgrep - search for the specified process
