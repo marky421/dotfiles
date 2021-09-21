@@ -21,9 +21,7 @@ alias c='clear'                               # clear the screen
 alias tf='tail -n 1000 -f '                   # enhance tail
 alias lf='less +F '                           # less with tailing on
 alias tree='tree -C'                          # always user colors
-alias dud='du -d 1 -h 2>/dev/null | sort -hr' # list folders by size
-alias duf='du -sh * 2>/dev/null | sort -hr'   # list files by size
-alias dudf='du -hsx * 2>/dev/null | sort -hr' # list everything by size
+alias dus='du -hsx * 2>/dev/null | sort -hr' # list everything by size
 
 # grep aliases
 # --------------------------------------
