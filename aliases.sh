@@ -9,39 +9,42 @@ OS=$(uname)
 
 # some useful aliases
 # --------------------------------------
-alias mv='mv -i'                        # prompts if overwriting a file
-alias cp='cp -i'                        # prompts if overwriting a file
-alias vi='vim'                          # always use vim instead of vi
-alias sudo='sudo '                      # autocomplete after using sudo
-alias mkdir='mkdir -p'                  # create parent directories
-alias path='echo -e ${PATH//:/\\n}'     # print $PATH line by line
-alias ..='cd ..'                        # go up one directory
-alias ...='cd ../..'                    # go uo two directories
-alias c='clear'                         # clear the screen
-alias tf='tail -n 1000 -f '             # enhance tail
-alias lf='less +F '                     # less with tailing on
-alias tree='tree -C'                    # always user colors
+alias mv='mv -i'                              # prompts if overwriting a file
+alias cp='cp -i'                              # prompts if overwriting a file
+alias vi='vim'                                # always use vim instead of vi
+alias sudo='sudo '                            # autocomplete after using sudo
+alias mkdir='mkdir -p'                        # create parent directories
+alias path='echo -e ${PATH//:/\\n}'           # print $PATH line by line
+alias ..='cd ..'                              # go up one directory
+alias ...='cd ../..'                          # go uo two directories
+alias c='clear'                               # clear the screen
+alias tf='tail -n 1000 -f '                   # enhance tail
+alias lf='less +F '                           # less with tailing on
+alias tree='tree -C'                          # always user colors
+alias dud='du -d 1 -h 2>/dev/null | sort -hr' # list folders by size
+alias duf='du -sh * 2>/dev/null | sort -hr'   # list files by size
+alias dudf='du -hsx * 2>/dev/null | sort -hr' # list everything by size
 
 # grep aliases
 # --------------------------------------
-alias grep='grep --color=always'        # use colors for grep
-alias egrep='egrep --color=always'      # use colors for egrep
+alias grep='grep --color=always'              # use colors for grep
+alias egrep='egrep --color=always'            # use colors for egrep
 
 # ls aliases
 # --------------------------------------
 # os-specific ls options
 if [[ $OS == Darwin ]]; then
-  alias ls='ls -CFGh'                   # enhance ls (Mac)
+  alias ls='ls -CFGh'                         # enhance ls (Mac)
 elif [[ $OS == Linux ]]; then
-  alias ls='ls -CFh --color=always'     # enhance ls (Linux)
+  alias ls='ls -CFh --color=always'           # enhance ls (Linux)
 fi
-alias sl='ls'                           # autocorrect 'ls' typo
-alias al='la -a'                        # autocorrect 'ls -a' shortcut typo
-alias l='ls'                            # enable use of l for ls
-alias ll='ls -l'                        # give ll desired 'ls -l' behavior
-alias la='ls -a'                        # give la desired 'ls -a' behavior
-alias lla='ls -la'                      # give lla desired 'ls -la' behavior
-alias lal='ls -al'                      # give lal desired 'ls -al' behavior
+alias sl='ls'                                 # autocorrect 'ls' typo
+alias al='la -a'                              # autocorrect 'ls -a' shortcut typo
+alias l='ls'                                  # enable use of l for ls
+alias ll='ls -l'                              # give ll desired 'ls -l' behavior
+alias la='ls -a'                              # give la desired 'ls -a' behavior
+alias lla='ls -la'                            # give lla desired 'ls -la' behavior
+alias lal='ls -al'                            # give lal desired 'ls -al' behavior
 
 # git aliases
 # --------------------------------------
