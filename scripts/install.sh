@@ -26,7 +26,7 @@ files="aliases.sh bashrc bash_load.sh bash_profile bin env.sh extras.sh function
 
 # install zsh, vim, neofetch, htop
 # --------------------------------------
-packages="zsh vim neofetch htop"
+packages="zsh vim neofetch htop ncdu"
 for package in $packages; do
   if ! [[ -f /bin/$package || -f /usr/bin/$package || -f /usr/local/bin/$package ]]; then
     # install using homebrew or apt dpending on OS
