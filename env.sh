@@ -13,7 +13,7 @@ OS=$(uname)
 # environment variables
 # --------------------------------------
 # explicitly configured $PATH variable
-export PATH=/usr/local/git/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/X11/bin
+export PATH=/usr/local/git/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/X11/bin:/snap/bin
 
 # os-specific environment variables
 if [[ $OS == Darwin ]]; then
