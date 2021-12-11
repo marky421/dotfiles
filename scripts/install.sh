@@ -35,6 +35,15 @@ for package in $packages; do
   fi
 done
 
+# install java 
+# --------------------------------------
+if ! [[ $OS == Darwin &&  $(java -versopn 2>&1) != *openjdk* ]]; then
+  brew install java
+  if ! [[ -f /Library/Java/JavaVirtualMachines/openjdk.jdk ]]; then
+    sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+  fi
+fi
+
 #if ! [[ -f /bin/zsh || -f /usr/bin/zsh || -f /usr/local/bin/zsh ]]; then
 #  # install zsh using homebrew or apt depending on OS
 #  [[ $OS == Darwin ]] && brew install zsh
