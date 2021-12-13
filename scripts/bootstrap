@@ -94,7 +94,7 @@ echo ""
 # install my dotfiles
 # --------------------------------------
 echo "Install my dotfiles..."
-$HOME/.dotfiles/scripts/install.sh
+#$HOME/.dotfiles/scripts/install.sh
 echo "Finished installing my dotfiles"
 echo ""
 

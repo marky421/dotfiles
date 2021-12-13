@@ -5,12 +5,11 @@
 # ----------------------------------------------------------------------
 
 # tap the repos
-brew tap caskroom/homebrew-cask
-brew tap caskroom/fonts
+brew tap homebrew/cask
+brew tap homebrew/cask-fonts
 
 # install brew packages
-brew install bash-completion2
-brew install brew-cask
+brew install bash-completion@2
 brew install cowsay
 brew install fortune
 brew install neofetch
@@ -22,37 +21,39 @@ brew install vim
 brew install wget
 
 # install fonts
-brew cask install font-source-code-pro
+brew install font-source-code-pro
 
 # install casks
-brew cask install appcleaner
-brew cask install arduino
-brew cask install bartender
-brew cask install coda
-brew cask install codekit
-brew cask install dropbox
-brew cask install firefox
-brew cask install google-chrome
-brew cask install google-drive
-brew cask install grandperspective
-brew cask install iterm2
-brew cask install istat-menus
-brew cask install java
-brew cask install lastpass
-brew cask install league-of-legends
-brew cask install macgdbp
-brew cask install macs-fan-control
-brew cask install gemini
-brew cask install mamp
-brew cask install music-manager
-brew cask install onyx
-brew cask install vnc-viewer
-brew cask install real-vnc
-brew cask install sizeup
-brew cask install skype
-brew cask install steam
-brew cask install sublime-text
-brew cask install teamviewer
-brew cask install the-unarchiver
-brew cask install transmission
-brew cask install vlc
+casks = (
+  appcleaner
+  arduino
+  bartender
+  brave-browser
+  docker
+  dropbox
+  google-chrome
+  google-drive
+  grandperspective
+  intellij-idea
+  iterm2
+  istat-menus
+  league-of-legends
+# macgdbp
+  mqtt-explorer
+# gemini
+#  mamp
+#  onyx
+  steam
+  sublime-text
+  the-unarchiver
+  transmission
+  transmit
+  visual-studio-code
+  vlc
+  vnc-server
+  vnc-viewer
+)
+
+for cask in ${casks[*]}; do
+  brew install --cask $cask
+done
