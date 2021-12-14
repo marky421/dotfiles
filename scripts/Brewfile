@@ -44,6 +44,7 @@ casks = (
 # gemini
 #  onyx
   nvidia-geforce-now
+  plex
   steam
   sublime-text
   the-unarchiver
