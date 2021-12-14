@@ -40,11 +40,10 @@ casks = (
   iterm2
   istat-menus
   league-of-legends
-# macgdbp
   mqtt-explorer
 # gemini
-#  mamp
 #  onyx
+  nvidia-geforce-now
   steam
   sublime-text
   the-unarchiver
