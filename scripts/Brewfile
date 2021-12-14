@@ -30,6 +30,7 @@ casks = (
   bartender
   battle-net
   brave-browser
+  caffeine
   docker
   dropbox
   google-chrome
