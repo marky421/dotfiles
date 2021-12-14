@@ -28,6 +28,7 @@ casks = (
   appcleaner
   arduino
   bartender
+  battle-net
   brave-browser
   docker
   dropbox
