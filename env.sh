@@ -25,8 +25,7 @@ if [[ $OS == Darwin ]]; then
   fi
 elif [[ $OS == Linux ]]; then
   export OPENDS_JAVA_HOME=/usr/lib/jvm/java-6-oracle
-  #export JAVA_HOME=/usr/lib/jvm/java-7-oracle
-  export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+  export JAVA_HOME=/usr/bin/java
   export ANT_HOME=/usr/share/ant
 fi
 
