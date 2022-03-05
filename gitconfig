@@ -10,6 +10,9 @@
 [core]
   editor = vim
 
+[init]
+  defaultBranch = master
+
 [color]
   branch = auto
   diff = auto
@@ -37,6 +40,7 @@
 
 [push]
   default = current
+
 [filter "media"]
 	clean = git media clean %f
 	smudge = git media smudge %f
