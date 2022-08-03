@@ -72,8 +72,8 @@ alias dev='cd $HOME/Developer'
 
 # docker aliases
 # --------------------------------------
-alias dcrun='docker-compose -f /opt/docker-compose.yml '
-alias dclogs='docker-compose -f /opt/docker-compose.yml logs -tf --tail="50" '
+alias dcrun='docker compose -f /opt/docker-compose.yml '
+alias dclogs='docker compose -f /opt/docker-compose.yml logs -tf --tail="50" '
 
 # just for fun
 # --------------------------------------
