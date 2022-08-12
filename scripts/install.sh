@@ -24,9 +24,9 @@ cd $dir
 # --------------------------------------
 files="aliases.sh bashrc bash_load.sh bash_profile bin env.sh extras.sh functions.sh gitconfig oh-my-zsh private vim zshrc"
 
-# install zsh, vim, neofetch, htop
+# install zsh, vim, neofetch, htop, ncdu, curl
 # --------------------------------------
-packages="zsh vim neofetch htop ncdu"
+packages="zsh vim neofetch htop ncdu curl"
 for package in $packages; do
   if ! [[ -f /bin/$package || -f /usr/bin/$package || -f /usr/local/bin/$package ]]; then
     # install using homebrew or apt dpending on OS
@@ -35,39 +35,24 @@ for package in $packages; do
   fi
 done
 
-# install java 
+# install linux-specific packages
 # --------------------------------------
-if ! [[ $OS == Darwin &&  $(java -versopn 2>&1) != *openjdk* ]]; then
+if [[ $OS == Linux ]]; then
+  linux_packages="lsb-release apt-transport ca-certificates libcap2-bin"
+  for package in $linux_packages; do
+    sudo apt install -y $package
+  done
+fi
+
+# install java if on a Mac 
+# --------------------------------------
+if [[ $OS == Darwin &&  $(java -version 2>&1) != *openjdk* ]]; then
   brew install java
   if ! [[ -f /Library/Java/JavaVirtualMachines/openjdk.jdk ]]; then
     sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
   fi
 fi
 
-#if ! [[ -f /bin/zsh || -f /usr/bin/zsh || -f /usr/local/bin/zsh ]]; then
-#  # install zsh using homebrew or apt depending on OS
-#  [[ $OS == Darwin ]] && brew install zsh
-#  [[ $OS == Linux  ]] && sudo apt install -y zsh
-#fi
-#
-#if ! [[ -f /bin/vim || -f /usr/bin/vim || -f usr/local/bin/vim ]]; then
-#  # install vim using homebrew or apt depending on OS
-#  [[ $OS == Darwin ]] && brew install vim
-#  [[ $OS == Linux  ]] && sudo apt install -y vim
-#fi
-#
-#if ! [[ -f /bin/neofetch || -f /usr/bin/neofetch || -f /usr/local/bin/neofetch ]]; then
-#  # install neofetch using homebrew or apt depending on OS
-#  [[ $OS == Darwin ]] && brew install neofetch
-#  [[ $OS == Linux  ]] && sudo apt install -y neofetch
-#fi
-#
-#if ! [[ -f /bin/htop || -f /usr/bin/htop || -f /usr/local/bin/htop ]]; then
-#  # install htop using homebrew or apt depending on OS
-#  [[ $OS == Darwin ]] && brew install htop
-#  [[ $OS == Linux  ]] && sudo apt install -y htop
-#fi
-  
 # install submodules (customization files)
 git submodule update --init --recursive
 
