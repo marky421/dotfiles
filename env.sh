@@ -29,6 +29,11 @@ elif [[ $OS == Linux ]]; then
   export ANT_HOME=/usr/share/ant
 fi
 
+# WSL-specific environment variables
+if [[ $(uname -a | grep --color=never -o Microsoft | head -1) == Microsoft ]]; then
+  export PATH=$PATH:/mnt/c/Windows/System32
+fi
+
 # set postgres host to localhost
 export PGHOST=localhost
 
