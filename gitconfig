@@ -41,9 +41,18 @@
 [push]
   default = current
 
+[pull]
+  rebase = false
+
 [filter "media"]
 	clean = git media clean %f
 	smudge = git media smudge %f
 	required = true
-[pull]
-	rebase = false
+
+[filter "lfs"]
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+
+
