@@ -30,7 +30,7 @@ elif [[ $OS == Linux ]]; then
 fi
 
 # WSL-specific environment variables
-if [[ $(uname -a | grep --color=never -o Microsoft | head -1) == Microsoft ]]; then
+if [[ $(uname -a | grep --color=never -io microsoft | head -1 | tr '[:upper:]' '[:lower:]') == microsoft ]]; then
   export PATH=$PATH:/mnt/c/Windows/System32
 fi
 
