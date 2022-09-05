@@ -28,6 +28,21 @@ qfind() {
   find $dir -type f -print0 | xargs -0 grep -l $str;
 }
 
+# loop - run 1 or more commands in a loop with a specified sleep duration
+# --------------------------------------
+loop() {
+  if [[ -z $1 ]] || [[ -z $2 ]]; then
+    echo "loop - run 1 or more commands in a loop with a specfied sleep duration"
+    echo "USAGE: loop \"COMMAND\" \"SLEEP_DURATION\""
+    echo ""
+    echo "Runs the COMMAND (include double quotes) indefinitely every SLEEP_DURATION seconds"
+    return 0;
+  fi
+  COMMAND=$1
+  SLEEP_DURATION=$2
+  while true; do eval $COMMAND; sleep $SLEEP_DURATION; done
+}
+
 # os-specific ls options (for use in cdl() and cdll())
 # --------------------------------------
 LS="ls -CFh"
