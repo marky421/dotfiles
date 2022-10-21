@@ -51,7 +51,8 @@ export NVM_DIR=$HOME/.nvm
 export CARGO_HOME=$HOME/.cargo
 export RUSTUP_HOME=$HOME/.rustup
 export GO_HOME=/usr/local/go
-export PATH=$JAVA_HOME/bin:$ANT_HOME/bin:$RVM_HOME/bin:$CARGO_HOME/bin:$GO_HOME/bin:$PATH
+export GOPATH=/opt/go
+export PATH=$JAVA_HOME/bin:$ANT_HOME/bin:$RVM_HOME/bin:$CARGO_HOME/bin:$GO_HOME/bin:$GOPATH/bin:$PATH
 
 # add custom bin folder to PATH
 export PATH=$HOME/bin:$HOME/.bin:$HOME/.local/bin:$PATH
