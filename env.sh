@@ -54,6 +54,9 @@ export GO_HOME=/usr/local/go
 export GOPATH=/opt/go
 export PATH=$JAVA_HOME/bin:$ANT_HOME/bin:$RVM_HOME/bin:$CARGO_HOME/bin:$GO_HOME/bin:$GOPATH/bin:$PATH
 
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # add custom bin folder to PATH
 export PATH=$HOME/bin:$HOME/.bin:$HOME/.local/bin:$PATH
 
