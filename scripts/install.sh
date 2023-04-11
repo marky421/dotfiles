@@ -26,7 +26,7 @@ files="aliases.sh bashrc bash_load.sh bash_profile bin env.sh extras.sh function
 
 # install zsh, vim, neofetch, htop, ncdu, curl
 # --------------------------------------
-packages="zsh vim neofetch htop ncdu curl fortune cowsay lolcat"
+packages="zsh vim neofetch htop ncdu curl"
 for package in $packages; do
   if ! [[ -f /bin/$package || -f /usr/bin/$package || -f /usr/local/bin/$package ]]; then
     # install using homebrew or apt dpending on OS
@@ -38,24 +38,11 @@ done
 # install linux-specific packages
 # --------------------------------------
 if [[ $OS == Linux ]]; then
-  linux_packages="lsb-release apt-transport ca-certificates libcap2-bin gnupg"
+  linux_packages="lsb-release apt-transport ca-certificates libcap2-bin"
   for package in $linux_packages; do
     sudo apt install -y $package
   done
   
-  # install speedtest cli
-  curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
-  sudo apt install speedtest
-
-  # install docker
-  sudo mkdir -m 0755 -p /etc/apt/keyrings
-  curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-  echo \
-    "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
-    "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
-    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-  sudo apt update
-  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 fi
 
 # install java if on a Mac 
