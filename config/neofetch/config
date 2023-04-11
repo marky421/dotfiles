@@ -65,7 +65,6 @@ print_info() {
     #[[ $player ]] && prin "Music Player" "$player"
     #info "Locale" locale  # This only works on glibc systems.
 
-    info cols
 }
 
 
