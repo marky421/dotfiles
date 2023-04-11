@@ -34,8 +34,10 @@ echo "Edit custom neofetch config at your ealiest convenience"
 sudo rm -f /etc/motd
 sudo touch /etc/update-motd.d/20-logo
 sudo touch /etc/update-motd.d/30-neofetch
+sudo touch /etc/update-motd.d/logo.txt
 sudo chmod 755 /etc/update-motd.d/20-logo
 sudo chmod 755 /etc/update-motd.d/30-neofetch
+sudo chomd 644 /etc/update-motd.d/logo.txt
 sudo tee -a /etc/update-motd.d/30-neofetch > /dev/null <<EOT
 #!/bin/sh
 # DO NOT DO THIS HERE! It will run as root instead of the logged in user.
