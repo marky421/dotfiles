@@ -27,7 +27,7 @@ Here's a quick breakdown of what happens when you run the setup script:
 
 ## Prerequisites
 
-Install sudo and git in order to clone this repo and run the initialization scripts. It would also be a good time to harden the ssh configuration.
+Install sudo and git in order to clone this repo and run the server initialization script (scripts/init-server.sh). It would also be a good time to harden the ssh configuration.
 
 ```
 # become root, install sudo and git, and add mark to the sudo group
