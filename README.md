@@ -25,6 +25,35 @@ Here's a quick breakdown of what happens when you run the setup script:
 4. Check to see if `zsh` is installed and try to install it if it isn't
 5. If zsh is installed, execute `chsh -s` to set it as the default shell
 
+## Prerequisites
+
+Install sudo and git in order to clone this repo and run the initialization scripts. It would also be a good time to harden the ssh configuration.
+
+```
+# become root, install sudo and git, and add mark to the sudo group
+$ su -
+$ apt install sudo git
+$ usermod -aG mark sudo
+```
+
+```
+# harden ssh config
+$ sudo tee -a /etc/ssh/sshd_config.d/hardened.conf > /dev/null <<EOT
+# $(hostname)-specific ssh configuration
+PrintMotd no
+PrintLastLog no
+AddressFamily inet
+PermitRootLogin no
+PasswordAuthentication no
+AllowUsers mark
+AllowAgentForwarding yes
+AllowTcpForwarding yes
+EOT
+$ sudo chmod 644 /etc/ssh/sshd_config.d/hardened.conf
+```
+
+Now is the time to copy ssh keys, verify they work via a separate session, and only then restart the system. Do NOT restart before copying ssh keys! Otherwise the hardened ssh config  will prevent remote login. If you end your session before copying ssh keys then you will need physical access to this machine in order to login.
+
 ## Installation
 
 ```
