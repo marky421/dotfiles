@@ -94,7 +94,7 @@ echo "Deleting any existing dotfiles from $HOME"
 for file in $files; do
   if [[ -h $HOME/.$file ]]; then
     sudo rm -f $HOME/.$file
-  elif [[ -f $HOME/.file ]]; then
+  elif [[ -f $HOME/.$file ]]; then
     sudo rm -f $HOME/.$file
   fi
   echo "Creating symlink to $file in home directory"
