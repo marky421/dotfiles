@@ -59,7 +59,7 @@ sudo touch /etc/update-motd.d/logo.txt
 sudo chmod 755 /etc/update-motd.d/10-uname
 sudo chmod 755 /etc/update-motd.d/20-logo
 sudo chmod 755 /etc/update-motd.d/30-neofetch
-sudo chomd 644 /etc/update-motd.d/logo.txt
+sudo chmod 644 /etc/update-motd.d/logo.txt
 
 # 10-uname
 sudo tee -a /etc/update-motd.d/10-uname > /dev/null <<EOT
