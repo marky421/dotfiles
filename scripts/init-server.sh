@@ -5,6 +5,7 @@ echo "Initializing new Debian server..."
 dir=$HOME/.dotfiles       # dotfiles directory
 
 # install docker
+# --------------------------------------
 sudo apt update
 sudo apt install -y ca-certificates curl gnupg
 sudo mkdir -m 0755 -p /etc/apt/keyrings
@@ -18,6 +19,7 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plug
 sudo usermod -aG docker $USER
 
 # configure neofetch
+# --------------------------------------
 sudo apt install -y neofetch
 echo "Copying neofetch config file"
 sudo mkdir /opt/neofetch
@@ -30,6 +32,7 @@ sudo ln -s $HOME/.config/neofetch/config /opt/neofetch/config
 echo "Edit custom neofetch config at your ealiest convenience"
 
 # configure sshd
+# --------------------------------------
 server_specifc_sshd_conf="/etc/ssh/sshd_config.d/10-$(hostname)-sshd.conf"
 sudo touch $server_specifc_sshd_conf
 sudo chown root:root $server_specifc_sshd_conf
@@ -47,7 +50,12 @@ AllowAgentForwarding yes
 AllowTcpForwarding yes
 EOT
 
+# motd stuff
+# --------------------------------------
+# See https://web.archive.org/web/20220701000000*/https://ownyourbits.com/2017/04/05/customize-your-motd-login-message-in-debian-and-ubuntu/
+
 # cleanup default motd
+# --------------------------------------
 sudo rm -f /etc/motd
 sudo sed -i "s/pam_motd.so noupdate/pam_motd.so/g" /etc/pam.d/login > /dev/null
 sudo sed -i "s/pam_motd.so noupdate/pam_motd.so/g" /etc/pam.d/sshd > /dev/null
@@ -55,6 +63,7 @@ sudo sed -i "s/pam_motd.so noupdate/pam_motd.so/g" /etc/pam.d/sshd > /dev/null
 [[ -a /etc/update-motd.d/50-motd-news ]] && sudo chmod 644 /etc/update-motd.d/50-motd-news    # disable the default 50-motd-news
 
 # configure motd scripts
+# --------------------------------------
 sudo touch /etc/update-motd.d/10-uname
 sudo touch /etc/update-motd.d/20-logo
 sudo touch /etc/update-motd.d/30-neofetch
@@ -65,12 +74,27 @@ sudo chmod 755 /etc/update-motd.d/30-neofetch
 sudo chmod 644 /etc/update-motd.d/logo.txt
 
 # 10-uname -- don't append this one, it may already be there on Debian systems
+# --------------------------------------
 sudo tee /etc/update-motd.d/10-uname > /dev/null <<EOT
 #!/bin/sh
 uname -snrvm
 EOT
 
+# 20-logo
+# --------------------------------------
+sudo tee -a /etc/update-motd.d/20-logo > /dev/null <<EOT
+#!/bin/sh
+# -----------------------------------------------------------------------
+# Go to this site, create a logo for this machine's hostname,
+# and then copy it into /etc/update-mot.d/logo.txt
+#   https://patorjk.com/software/taag/#p=display&f=Larry%203D&t=hostname
+# -----------------------------------------------------------------------
+cat /etc/update-motd.d/logo.txt
+EOT
+sudo docker run --quiet --rm node:18 bash -c "npm install &> '/dev/null' -g figlet-cli && echo '' && figlet -f 'Larry 3D' '$(hostname)'" | sudo tee -a /etc/update-motd.d/logo.txt &> '/dev/null' && docker image rm node:18 &> '/dev/null'
+
 # 30-neofetch
+# --------------------------------------
 sudo tee -a /etc/update-motd.d/30-neofetch > /dev/null <<EOT
 #!/bin/sh
 # DO NOT DO THIS HERE! It will run as root instead of the logged in user.
@@ -120,17 +144,6 @@ sudo tee -a /etc/zsh/zprofile > /dev/null <<EOT
 emulate sh -c 'source /etc/profile'
 EOT
 
-# 20-logo
-sudo tee -a /etc/update-motd.d/20-logo > /dev/null <<EOT
-#!/bin/sh
-# -----------------------------------------------------------------------
-# Go to this site, create a logo for this machine's hostname,
-# and then copy it into /etc/update-mot.d/logo.txt
-#   https://patorjk.com/software/taag/#p=display&f=Larry%203D&t=hostname
-# -----------------------------------------------------------------------
-cat /etc/update-motd.d/logo.txt
-EOT
-sudo docker run --quiet --rm node:18 bash -c "npm install &> '/dev/null' -g figlet-cli && echo '' && figlet -f 'Larry 3D' '$(hostname)'" | sudo tee -a /etc/update-motd.d/logo.txt &> '/dev/null' && docker image rm node:18 &> '/dev/null'
 echo ""
 echo "...done!"
 echo ""
