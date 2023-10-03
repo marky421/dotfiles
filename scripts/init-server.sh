@@ -48,10 +48,10 @@ EOT
 
 # cleanup default motd
 sudo rm -f /etc/motd
-sed "s/pam_motd.so noupdate/pam_motd.so/g" /etc/pam.d/login
-sed "s/pam_motd.so noupdate/pam_motd.so/g" /etc/pam.d/sshd
-sudo chmod 644 /etc/update-motd.d/10-help-text    # disable thje default 10-help-text
-sudo chmod 644 /etc/update-motd.d/50-motd-news    # disable the default 50-motd-news
+sudo sed "s/pam_motd.so noupdate/pam_motd.so/g" /etc/pam.d/login > /dev/null
+sudo sed "s/pam_motd.so noupdate/pam_motd.so/g" /etc/pam.d/sshd > /dev/null
+[[ -a /etc/update-motd.d/10-help-text ]] && sudo chmod 644 /etc/update-motd.d/10-help-text    # disable thje default 10-help-text
+[[ -a /etc/update-motd.d/50-motd-news ]] && sudo chmod 644 /etc/update-motd.d/50-motd-news    # disable the default 50-motd-news
 
 # configure motd scripts
 sudo touch /etc/update-motd.d/10-uname
