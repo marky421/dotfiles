@@ -32,6 +32,7 @@ if [[ $OS == Darwin ]]; then
     echo "Finished installing homebrew"
   else
     echo "Found homebrew"
+  fi
 fi
 
 # install os-agnostic packages
