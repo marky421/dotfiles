@@ -48,8 +48,8 @@ EOT
 
 # cleanup default motd
 sudo rm -f /etc/motd
-sudo sed "s/pam_motd.so noupdate/pam_motd.so/g" /etc/pam.d/login > /dev/null
-sudo sed "s/pam_motd.so noupdate/pam_motd.so/g" /etc/pam.d/sshd > /dev/null
+sudo sed -i "s/pam_motd.so noupdate/pam_motd.so/g" /etc/pam.d/login > /dev/null
+sudo sed -i "s/pam_motd.so noupdate/pam_motd.so/g" /etc/pam.d/sshd > /dev/null
 [[ -a /etc/update-motd.d/10-help-text ]] && sudo chmod 644 /etc/update-motd.d/10-help-text    # disable thje default 10-help-text
 [[ -a /etc/update-motd.d/50-motd-news ]] && sudo chmod 644 /etc/update-motd.d/50-motd-news    # disable the default 50-motd-news
 
@@ -130,6 +130,6 @@ sudo tee -a /etc/update-motd.d/20-logo > /dev/null <<EOT
 cat /etc/update-motd.d/logo.txt
 EOT
 echo "Go to this site, create a logo for this machine's hostname, and then copy it into /etc/update-mot.d/logo.txt"
-echo "\n\t\thttps://patorjk.com/software/taag/#p=display&f=Larry%203D&t=hostname\n\n"
+echo -e "\n\t\thttps://patorjk.com/software/taag/#p=display&f=Larry%203D&t=hostname\n\n"
 echo ""
 
