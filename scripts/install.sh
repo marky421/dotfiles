@@ -23,6 +23,7 @@ cd $dir
 files="aliases.sh bashrc bash_load.sh bash_profile bin env.sh extras.sh functions.sh gitconfig oh-my-zsh vim zshrc"
 
 # install homebrew if on Mac
+# --------------------------------------
 if [[ $OS == Darwin ]]; then
   echo "Checking for homebrew..."
   if [[ ! -a /opt/homebrew/bin/brew ]]; then
@@ -33,6 +34,13 @@ if [[ $OS == Darwin ]]; then
   else
     echo "Found homebrew"
   fi
+fi
+
+# update linux packages before installing new things
+# --------------------------------------
+if [[ $OS == Linux ]]; then
+  sudo apt update
+  sudo apt upgrade -y
 fi
 
 # install os-agnostic packages
@@ -83,9 +91,11 @@ if [[ $OS == Darwin &&  $(java -version 2>&1) != *openjdk* ]]; then
 fi
 
 # install submodules (customization files)
+# --------------------------------------
 git submodule update --init --recursive
 
 # set the default shell to zsh if it isn't currently set to zsh
+# --------------------------------------
 [[ ! $(echo $SHELL) == $(which zsh) ]] && sudo usermod -s $(which zsh) $USER
 
 # delete old dotfiles and create symlinks to new ones
