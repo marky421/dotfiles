@@ -2,6 +2,8 @@
 
 echo "Initializing new Debian server..."
 
+dir=$HOME/.dotfiles       # dotfiles directory
+
 # install docker
 sudo apt update
 sudo apt install -y ca-certificates curl gnupg
@@ -27,7 +29,7 @@ sudo ln -s $HOME/.config/neofetch/config /opt/neofetch/config
 echo "Edit custom neofetch config at your ealiest convenience"
 
 # configure sshd
-server_specifc_sshd_conf = "/etc/ssh/sshd_config.d/10-$(hostname)-sshd.conf"
+server_specifc_sshd_conf="/etc/ssh/sshd_config.d/10-$(hostname)-sshd.conf"
 sudo touch $server_specifc_sshd_conf
 sudo chown root:root $server_specifc_sshd_conf
 sudo chmod 644 $server_specifc_sshd_conf
