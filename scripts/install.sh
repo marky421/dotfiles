@@ -90,7 +90,7 @@ git submodule update --init --recursive
 # delete old dotfiles and create symlinks to new ones
 # --------------------------------------
 echo "Deleting any existing dotfiles from $HOME"
-for file in $files; do 
+for file in $files; do
   if [[ -h $HOME/.$file ]]; then
     sudo rm -f $HOME/.$file
   elif [[ -f $HOME/.file ]]; then
@@ -102,3 +102,4 @@ done
 
 echo "...done"
 echo "Please log out and back in for changes to take effect."
+
