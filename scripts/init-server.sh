@@ -129,6 +129,7 @@ sudo tee -a /etc/update-motd.d/20-logo > /dev/null <<EOT
 # -----------------------------------------------------------------------
 cat /etc/update-motd.d/logo.txt
 EOT
+docker run --quiet --rm node:18 bash -c "npm install &> '/dev/null' -g figlet-cli && figlet -f 'Larry 3D' '$(hostname)'" >> /etc/update-motd.d/logo.txt && docker image rm node:18 &> '/dev/null'
 echo "Go to this site, create a logo for this machine's hostname, and then copy it into /etc/update-mot.d/logo.txt"
 echo -e "\n\t\thttps://patorjk.com/software/taag/#p=display&f=Larry%203D&t=hostname\n\n"
 echo ""
