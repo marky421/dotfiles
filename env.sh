@@ -18,15 +18,12 @@ export PATH=/usr/local/git/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
 # os-specific environment variables
 if [[ $OS == Darwin ]]; then
   export JAVA_HOME=$(/usr/libexec/java_home)
-  export ANT_HOME=/usr/local/apache-ant
   export HOMEBREW_CASK_OPTS="--appdir=/Applications"
   if [[ -a /opt/homebrew/bin/brew ]]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
   fi
 elif [[ $OS == Linux ]]; then
-  export OPENDS_JAVA_HOME=/usr/lib/jvm/java-6-oracle
   export JAVA_HOME=/usr/lib/jvm/default-java
-  export ANT_HOME=/usr/share/ant
 fi
 
 # WSL-specific environment variables
@@ -46,16 +43,12 @@ elif [[ -f /usr/bin/vim ]]; then
   export EDITOR=/usr/bin/vim
 fi
 
-export RVM_HOME=$HOME/.rvm
 export NVM_DIR=$HOME/.nvm
 export CARGO_HOME=$HOME/.cargo
 export RUSTUP_HOME=$HOME/.rustup
 export GO_HOME=/usr/local/go
 export GOPATH=/opt/go
-export PATH=$JAVA_HOME/bin:$ANT_HOME/bin:$RVM_HOME/bin:$CARGO_HOME/bin:$GO_HOME/bin:$GOPATH/bin:$PATH
-
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH=$JAVA_HOME/bin:$CARGO_HOME/bin:$GO_HOME/bin:$GOPATH/bin:$PATH
 
 # add custom bin folder to PATH
 export PATH=$HOME/bin:$HOME/.bin:$HOME/.local/bin:$PATH

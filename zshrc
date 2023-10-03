@@ -16,18 +16,6 @@ ZSH=$HOME/.oh-my-zsh
 #ZSH_THEME="robbyrussell"
 ZSH_THEME="markspain"
 
-# use case-sensitive completion
-# --------------------------------------
-#CASE_SENSITIVE="true"
-
-# disable weekly auto-update checks
-# --------------------------------------
-#DISABLE_AUTO_UPDATE="true"
-
-# disable autosetting terminal title
-# --------------------------------------
-#DISABLE_AUTO_TITLE="true"
-
 # display red dots while waiting for completion
 # --------------------------------------
 COMPLETION_WAITING_DOTS="true"
@@ -45,6 +33,4 @@ unsetopt prompt_cr prompt_sp
 
 # source other configuration files
 # --------------------------------------
-[[ -a $HOME/.private ]] && . $HOME/.private
-[[ -a $HOME/.profile ]] && . $HOME/.profile  # Read Mac .profile, if present.
 [[ -a $HOME/.bashrc  ]] && . $HOME/.bashrc

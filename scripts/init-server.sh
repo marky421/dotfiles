@@ -2,10 +2,6 @@
 
 echo "Initializing new Debian server..."
 
-# install speedtest cli
-curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
-sudo apt install -y speedtest
-
 # install docker
 sudo apt update
 sudo apt install -y ca-certificates curl gnupg
@@ -30,14 +26,48 @@ chmod -R 755 $HOME/.config/neofetch/
 sudo ln -s $HOME/.config/neofetch/config /opt/neofetch/config
 echo "Edit custom neofetch config at your ealiest convenience"
 
-# configure motd
+# configure sshd
+server_specifc_sshd_conf = "/etc/ssh/sshd_config.d/10-$(hostname)-sshd.conf"
+sudo touch $server_specifc_sshd_conf
+sudo chown root:root $server_specifc_sshd_conf
+sudo chmod 644 $server_specifc_sshd_conf
+sudo tee -a $server_specifc_sshd_conf > /dev/null <<EOT
+# $(hostname)-specific ssh configuration
+Port 22
+PrintMotd no
+PrintLastLog no
+AddressFamily inet
+PermitRootLogin no
+#PasswordAuthentication no
+AllowUsers mark
+AllowAgentForwarding yes
+AllowTcpForwarding yes
+EOT
+
+# cleanup default motd
 sudo rm -f /etc/motd
+sed "s/pam_motd.so noupdate/pam_motd.so/g" /etc/pam.d/login
+sed "s/pam_motd.so noupdate/pam_motd.so/g" /etc/pam.d/sshd
+sudo chmod 644 /etc/update-motd.d/10-help-text    # disable thje default 10-help-text
+sudo chmod 644 /etc/update-motd.d/50-motd-news    # disable the default 50-motd-news
+
+# configure motd scripts
+sudo touch /etc/update-motd.d/10-uname
 sudo touch /etc/update-motd.d/20-logo
 sudo touch /etc/update-motd.d/30-neofetch
 sudo touch /etc/update-motd.d/logo.txt
+sudo chmod 755 /etc/update-motd.d/10-uname
 sudo chmod 755 /etc/update-motd.d/20-logo
 sudo chmod 755 /etc/update-motd.d/30-neofetch
 sudo chomd 644 /etc/update-motd.d/logo.txt
+
+# 10-uname
+sudo tee -a /etc/update-motd.d/10-uname > /dev/null <<EOT
+#!/bin/sh
+uname -snrvm
+EOT
+
+# 30-neofetch
 sudo tee -a /etc/update-motd.d/30-neofetch > /dev/null <<EOT
 #!/bin/sh
 # DO NOT DO THIS HERE! It will run as root instead of the logged in user.
@@ -86,6 +116,8 @@ sudo tee -a /etc/zsh/zprofile > /dev/null <<EOT
 # bash login shells.
 emulate sh -c 'source /etc/profile'
 EOT
+
+# 20-logo
 sudo tee -a /etc/update-motd.d/20-logo > /dev/null <<EOT
 #!/bin/sh
 # -----------------------------------------------------------------------
@@ -98,6 +130,4 @@ EOT
 echo "Go to this site, create a logo for this machine's hostname, and then copy it into /etc/update-mot.d/logo.txt"
 echo "\n\t\thttps://patorjk.com/software/taag/#p=display&f=Larry%203D&t=hostname\n\n"
 echo ""
-
-
 
