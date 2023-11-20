@@ -57,7 +57,7 @@ done
 # install linux-specific packages
 # --------------------------------------
 if [[ $OS == Linux ]]; then
-  linux_packages="lsb-release apt-transport-https ca-certificates libcap2-bin"
+  linux_packages="lsb-release apt-transport-https ca-certificates libcap2-bin pass"
   for package in $linux_packages; do
     sudo apt install -y $package
   done
