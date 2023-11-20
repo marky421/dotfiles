@@ -76,6 +76,11 @@ alias dev='cd $HOME/Developer'
 alias dcrun='docker compose -f /opt/docker-compose.yml '
 alias dclogs='docker compose -f /opt/docker-compose.yml logs -tf --tail="50" '
 
+# WSL aliases
+# --------------------------------------
+alias explorer.exe='/mnt/c/Windows/explorer.exe'
+alias explorer='explorer.exe'
+
 # just for fun
 # --------------------------------------
 alias starwars='telnet towel.blinkenlights.nl'
