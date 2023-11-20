@@ -7,6 +7,12 @@
   email = markyspain421@gmail.com
   name = Mark Spain
 
+[includeIf "gitdir:/mnt/c/Users/BB886QZ/**"]
+  path = ~/.gitconfig-work
+
+[includeIf "gitdir:C:/Users/BB886QZ/**"]
+  path = ~/.gitconfig-work
+
 [core]
   editor = vim
 
@@ -45,9 +51,9 @@
   rebase = false
 
 [filter "media"]
-	clean = git media clean %f
-	smudge = git media smudge %f
-	required = true
+  clean = git media clean %f
+  smudge = git media smudge %f
+  required = true
 
 [filter "lfs"]
   required = true
@@ -55,4 +61,12 @@
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
 
+[protocol]
+  version = 2
 
+[credential]
+  helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
+  helper = /usr/local/bin/git-credential-manager
+
+[credential "https://dev.azure.com"]
+  useHttpPath = true

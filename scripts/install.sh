@@ -20,7 +20,7 @@ cd $dir
 
 # list of files/folders to symlink in homedir
 # --------------------------------------
-files="aliases.sh bashrc bash_load.sh bash_profile bin env.sh extras.sh functions.sh gitconfig oh-my-zsh vim zshrc"
+files="aliases.sh bashrc bash_load.sh bash_profile bin env.sh extras.sh functions.sh gitconfig gitconfig-work oh-my-zsh vim zshrc"
 
 # install homebrew if on Mac
 # --------------------------------------
