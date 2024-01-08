@@ -73,6 +73,8 @@ alias dev='cd $HOME/Developer'
 
 # docker aliases
 # --------------------------------------
+alias dockerips='docker ps | tail -n +2 | while read cid b; do echo -n "$cid\t"; docker inspect $cid | grep IPAddress | cut -d \" -f 4; done'
+alias dockerprune='docker system prune -a --volumes'
 alias dcrun='docker compose -f /opt/docker-compose.yml '
 alias dclogs='docker compose -f /opt/docker-compose.yml logs -tf --tail="50" '
 
