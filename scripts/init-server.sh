@@ -39,15 +39,25 @@ sudo chown root:root $server_specifc_sshd_conf
 sudo chmod 644 $server_specifc_sshd_conf
 sudo tee -a $server_specifc_sshd_conf > /dev/null <<EOT
 # $(hostname)-specific ssh configuration
-Port 22
+Port 22221
 PrintMotd no
 PrintLastLog no
 AddressFamily inet
 PermitRootLogin no
-#PasswordAuthentication no
+PasswordAuthentication no
 AllowUsers mark
-AllowAgentForwarding yes
+AllowAgentForwarding no
 AllowTcpForwarding yes
+ChallengeResponseAuthentication no
+KbdInteractiveAuthentication no
+KerberosAuthentication no
+GSSAPIAuthentication no
+PermitEmptyPasswords no
+X11Forwarding no
+MaxAuthTries 3
+LoginGraceTime 20
+PermitUserEnvironment no
+PermitTunnel no
 EOT
 
 # motd stuff
@@ -144,6 +154,10 @@ sudo tee -a /etc/zsh/zprofile > /dev/null <<EOT
 # bash login shells.
 emulate sh -c 'source /etc/profile'
 EOT
+
+echo ""
+echo "ATTENTION!! Do not log out without first adding an ssh public key to ~/.ssh/authorized_keys or else you will need to connect a keyboard and display in order to log in!"
+echo ""
 
 echo ""
 echo "...done!"
