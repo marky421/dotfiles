@@ -24,6 +24,22 @@ if [[ $OS == Darwin ]]; then
   fi
 elif [[ $OS == Linux ]]; then
   export JAVA_HOME=/usr/lib/jvm/default-java
+  # Auto-start the ssh agent and add necessary keys once per reboot. 
+  # See: https://github.com/ElectricRCAircraftGuy/eRCaGuy_dotfiles/tree/master/home/.ssh#auto-starting-the-the-ssh-agent-on-a-remote-ssh-based-development-machine
+  # and this stackexchange answer: https://unix.stackexchange.com/a/686110/114401
+  # Note that a corresponding entry has been added to .bash_logout (called by .zlogout) to kill ssh-agent on session close
+  # echo statements can be uncommented for troubleshooting
+  if ! ps -ef | grep "[s]sh-agent" &>/dev/null; then
+    echo "'ssh-agent' is not currently running. Starting SSH Agent. Starting 'ssh-agent' now."
+    eval $(ssh-agent -s)
+    ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+  else
+    echo "'ssh-agent' already started. Nothing to do."
+    export SSH_AGENT_PID=$(ps -ef | grep "[s]sh-agent" | awk '{ print $2 }')
+  fi
+  export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+  echo "SSH_AUTH_SOCK: $SSH_AUTH_SOCK"
+  echo "SSH_AGENT_PID: $SSH_AGENT_PID"
 fi
 
 # WSL-specific environment variables
@@ -42,23 +58,6 @@ elif [[ -f /usr/bin/vim ]]; then
   # otherwise set to /usr/bin/vim if default Vim exists
   export EDITOR=/usr/bin/vim
 fi
-
-# Auto-start the ssh agent and add necessary keys once per reboot. 
-# See: https://github.com/ElectricRCAircraftGuy/eRCaGuy_dotfiles/tree/master/home/.ssh#auto-starting-the-the-ssh-agent-on-a-remote-ssh-based-development-machine
-# and this stackexchange answer: https://unix.stackexchange.com/a/686110/114401
-# Note that a corresponding entry has been added to .bash_logout (called by .zlogout) to kill ssh-agent on session close
-# echo statements can be uncommented for troubleshooting
-if ! ps -ef | grep "[s]sh-agent" &>/dev/null; then
-  echo "'ssh-agent' is not currently running. Starting SSH Agent. Starting 'ssh-agent' now."
-  eval $(ssh-agent -s)
-  ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
-else
-  echo "'ssh-agent' already started. Nothing to do."
-  export SSH_AGENT_PID=$(ps -ef | grep "[s]sh-agent" | awk '{ print $2 }')
-fi
-export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
-echo "SSH_AUTH_SOCK: $SSH_AUTH_SOCK"
-echo "SSH_AGENT_PID: $SSH_AGENT_PID"
 
 export NVM_DIR=$HOME/.nvm
 export CARGO_HOME=$HOME/.cargo
