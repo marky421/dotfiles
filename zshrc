@@ -34,3 +34,6 @@ unsetopt prompt_cr prompt_sp
 # source other configuration files
 # --------------------------------------
 [[ -a $HOME/.bashrc  ]] && . $HOME/.bashrc
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
