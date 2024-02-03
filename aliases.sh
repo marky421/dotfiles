@@ -38,6 +38,8 @@ if [[ $OS == Darwin ]]; then
 elif [[ $OS == Linux ]]; then
   alias ls='ls -CFh --color=always'           # enhance ls (Linux)
 fi
+alias eza='eza -Fghm --color=always --color-scale=all --color-scale-mode=gradient --icons=always --hyperlink --time-style=long-iso --total-size' # enhance eza
+#alias ls='eza' # overwrite ls with eza
 alias sl='ls'                                 # autocorrect 'ls' typo
 alias al='la -a'                              # autocorrect 'ls -a' shortcut typo
 alias l='ls'                                  # enable use of l for ls
