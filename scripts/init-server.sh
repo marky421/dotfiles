@@ -18,6 +18,10 @@ sudo apt update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 sudo usermod -aG docker $USER
 
+# configure docker completions for zsh
+# --------------------------------------
+docker completion zsh > $HOME/.oh-my-zsh/plugins/docker/_docker
+
 # configure neofetch
 # --------------------------------------
 sudo apt install -y neofetch
