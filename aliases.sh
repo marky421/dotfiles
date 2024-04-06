@@ -39,7 +39,7 @@ elif [[ $OS == Linux ]]; then
   alias ls='ls -CFh --color=always'           # enhance ls (Linux)
 fi
 # if eza is installed, overwrite ls with eza
-if [[ -f /usr/bin/eza ]]; then
+if [[ -f /usr/bin/eza || -f /opt/homebrew/bin/eza ]]; then
   # enhance eza
   alias eza='eza -ghmF --icons --color-scale=all --color-scale-mode=gradient --icons=always --hyperlink --time-style=long-iso'
   # overwite ls with eza
