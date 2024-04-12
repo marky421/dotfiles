@@ -164,5 +164,9 @@ echo "ATTENTION!! Do not log out without first adding an ssh public key to ~/.ss
 echo ""
 
 echo ""
+echo "After adding an ssh public key to ~/.ssh/authorized_keys, reboot the system to reload the ssh daemon."
+echo ""
+
+echo ""
 echo "...done!"
 echo ""
