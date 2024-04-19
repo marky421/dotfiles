@@ -92,3 +92,16 @@ psgrep() {
 clearfile() {
   echo -n > $1
 }
+
+# weather - prints the day's weather forcast using wttr.in
+# --------------------------------------
+weather() {
+  # if current number of terminal columns is greater or equal to 126
+  if [[ $(tput cols) -ge 126 ]]; then
+    # motd script version (long) (>= 126 cols)
+    curl -m 10 'wttr.in/Edmonds,%20Washington,%20United%20States?u1qF'
+  else
+    # motd script version (short)
+    curl -m 10 'wttr.in/Edmonds,%20Washington,%20United%20States?u1qFn'
+  fi
+}
