@@ -39,7 +39,8 @@ print_info() {
 
     info line_break
 
-    prin "Weather..............." "$(curl -m 10 'wttr.in/?0?q?T' | awk '/°(C|F)/ {printf $(NF-1) $(NF) " ("a")"} /,/ {a=$0}')"
+    prin "Weather..............." "$(curl -m 10 'wttr.in/Edmonds,%20Washington,%20United%20States?u0qTF' | awk '/°(C|F)/ {printf $(NF-1) $(NF) " ("a")"} /,/ {a=$0}'
+)"
 
     info line_break
 

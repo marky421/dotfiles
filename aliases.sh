@@ -66,6 +66,12 @@ alias gx='gitx --all'
 alias got='git '
 alias get='git '
 
+# neofetch alias for macos
+# --------------------------------------
+if [[ $OS == Darwin && -f $HOME/.config/neofetch/config ]]; then
+  alias neofetch='neofetch --config $HOME/.config/neofetch/config'
+fi
+
 # MySQL aliases
 # --------------------------------------
 alias mysql='mysql -u root'

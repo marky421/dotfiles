@@ -90,9 +90,17 @@ if [[ $OS == Darwin ]]; then
   brew install speedtest --force
 fi
 
+# copy neofetch config if on Mac
+# --------------------------------------
+if [[ $OS == Darwin ]]; then
+  sudo rm -rf $HOME/.config/neofetch
+  mkdir -p $HOME/.config/neofetch
+  cp -r $dir/config/neofetch/* ~/.config/neofetch
+fi
+
 # install java if on a Mac 
 # --------------------------------------
-if [[ $OS == Darwin &&  $(java -version 2>&1) != *openjdk* ]]; then
+if [[ $OS == Darwin && $(java -version 2>&1) != *openjdk* ]]; then
   brew install java
   if ! [[ -f /Library/Java/JavaVirtualMachines/openjdk.jdk ]]; then
     sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
