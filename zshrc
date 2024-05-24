@@ -32,7 +32,7 @@ plugins=(colored-man-pages command-not-found common-aliases docker git sudo fast
 
 # history setup
 # --------------------------------------
-export HIST_STAMPS='yyyy-mm-dd'
+HIST_STAMPS='yyyy-mm-dd'
 
 # activate oh-my-zsh
 # --------------------------------------
