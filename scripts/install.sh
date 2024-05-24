@@ -146,7 +146,7 @@ git submodule update --init --recursive
 
 # install oh-my-zsh and its plugins
 # -------------------------------------
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/Pilaton/OhMyZsh-full-autoupdate.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/ohmyzsh-full-autoupdate
@@ -159,6 +159,7 @@ fi
 if [[ $OS == Linux ]]; then
   curl -sS https://starship.rs/install.sh | sh
 fi
+mkdir -p $HOME/.config
 ln -s $dir/config/starship.toml $HOME/.config/starship.toml
 
 # delete old dotfiles and create symlinks to new ones
