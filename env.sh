@@ -31,7 +31,7 @@ elif [[ $OS == Linux ]]; then
   # echo statements can be uncommented for troubleshooting
   if ! ps -ef | grep "[s]sh-agent" &>/dev/null; then
     echo "'ssh-agent' is not currently running. Starting SSH Agent. Starting 'ssh-agent' now."
-    eval $(ssh-agent -s)i
+    eval $(ssh-agent -s)
     mkdir -p ~/.ssh
     ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
   else
