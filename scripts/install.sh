@@ -20,8 +20,7 @@ cd $dir
 
 # list of files/folders to symlink in homedir
 # --------------------------------------
-files="aliases.sh bashrc bash_load.sh bash_profile bin env.sh extras.sh functions.sh gitconfig gitconfig-work oh-my-zsh vim zshrc"
-files="bin aliases.sh env.sh extras.sh functions.sh gitconfig gitconfig-work vim zlogout zshrc"
+files="aliases.sh bin env.sh extras.sh functions.sh gitconfig gitconfig-work vim zlogout zshrc"
 
 # install homebrew if on Mac
 # --------------------------------------
@@ -46,7 +45,7 @@ fi
 
 # install os-agnostic packages
 # --------------------------------------
-packages="zsh vim neofetch fastfetch htop ncdu curl wget tree bat"
+packages="zsh vim neofetch fastfetch htop ncdu curl wget tree bat fzf"
 for package in $packages; do
   if ! [[ -f /bin/$package || -f /usr/bin/$package || -f /usr/local/bin/$package || -f /opt/homebrew/bin/$package ]]; then
     # install using homebrew or apt dpending on OS
