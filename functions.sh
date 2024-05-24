@@ -105,3 +105,33 @@ weather() {
     curl -m 10 'wttr.in/Edmonds,%20Washington,%20United%20States?u1qFn'
   fi
 }
+
+# update_fastfetch - installs/updates fastfetch by downloading the latest .deb from github
+# --------------------------------------
+update_fastfetch() {
+  OS=$(uname)
+  if [[ $OS == Linux ]]; then
+    arch=$(arch)
+    case $arch in
+      "x86_64"  | "amd64") arch="amd64"   ;;
+      "aarch64" | "arm64") arch="aarch64" ;;
+      "armv7l"  | "armhf") arch="armv7l"  ;;
+                        *) arch=""        ;;
+    esac
+
+    if [ -z $arch ]; then
+      echo "Incompatible architecture: $(arch)"
+    else
+      echo "Installing latest version of fastfetch for architecture: $arch"
+      package="fastfetch-linux-$arch.deb"
+      url="https://github.com/fastfetch-cli/fastfetch/releases/latest/download/$package"
+      wget -O /tmp/$package $url
+      sudo apt install -y /tmp/$package
+      rm -f /tmp/$package
+      echo "Installed $(fastfetch --version)"
+    fi
+  else
+    echo "Only applicable on Linux systems"
+  fi
+}
+

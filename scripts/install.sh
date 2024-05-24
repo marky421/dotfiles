@@ -45,7 +45,7 @@ fi
 
 # install os-agnostic packages
 # --------------------------------------
-packages="zsh vim neofetch fastfetch htop ncdu curl wget tree bat btop"
+packages="zsh vim neofetch htop ncdu curl wget tree bat btop"
 for package in $packages; do
   if ! [[ -f /bin/$package || -f /usr/bin/$package || -f /usr/local/bin/$package || -f /opt/homebrew/bin/$package ]]; then
     # install using homebrew or apt dpending on OS
@@ -74,12 +74,16 @@ if [[ $OS == Linux ]]; then
   sudo apt update
   sudo apt install -y eza
 
+  # install fastfetch
+  source $dir/functions.sh
+  update_fastfetch
+
 fi
 
 # install Mac-specific packages
 # --------------------------------------
 if [[ $OS == Darwin ]]; then
-  mac_packages="bash-completion@2 cowsay fortune p7zip pianobar python3 eza"
+  mac_packages="bash-completion@2 cowsay fortune p7zip pianobar python3 eza fastfetch"
   for package in $mac_packages; do
     brew install $package
   done
@@ -97,6 +101,10 @@ if [[ $OS == Darwin ]]; then
   mkdir -p $HOME/.config/neofetch
   cp -r $dir/config/neofetch/* ~/.config/neofetch
 fi
+
+# copy fastfetch config
+# --------------------------------------
+# TODO
 
 # symlink bat -> batcat if on Linux
 # --------------------------------------
