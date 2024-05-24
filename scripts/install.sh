@@ -157,7 +157,7 @@ if [[ $OS == Darwin ]]; then
   brew install starship
 fi
 if [[ $OS == Linux ]]; then
-  curl -sS https://starship.rs/install.sh | sh
+  curl -sS https://starship.rs/install.sh | sh -s -- -y
 fi
 mkdir -p $HOME/.config
 ln -s $dir/config/starship.toml $HOME/.config/starship.toml
