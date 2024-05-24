@@ -45,7 +45,7 @@ fi
 
 # install os-agnostic packages
 # --------------------------------------
-packages="zsh vim neofetch fastfetch htop ncdu curl wget tree bat"
+packages="zsh vim neofetch fastfetch htop ncdu curl wget tree bat btop"
 for package in $packages; do
   if ! [[ -f /bin/$package || -f /usr/bin/$package || -f /usr/local/bin/$package || -f /opt/homebrew/bin/$package ]]; then
     # install using homebrew or apt dpending on OS
