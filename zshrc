@@ -3,37 +3,69 @@
 # Mark Spain
 # ----------------------------------------------------------------------
 
-# path to my oh-my-zsh configuration
+# Path to your oh-my-zsh installation
 # --------------------------------------
-ZSH=$HOME/.oh-my-zsh
+export ZSH="$HOME/.oh-my-zsh"
 
-# set name of the theme to load
+# OMZ update configuration
 # --------------------------------------
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme
-# each time that oh-my-zsh is loaded.
-#ZSH_THEME="xiong-chiamiov-plus"
-#ZSH_THEME="robbyrussell"
-ZSH_THEME="markspain"
+zstyle ':omz:update' mode reminder
+zstyle ':omz:update' frequency 13
 
-# display red dots while waiting for completion
-# --------------------------------------
+# Uncomment the following line to enable command auto-correction.
+ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
 COMPLETION_WAITING_DOTS="true"
 
-# load plugins (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(colored-man-pages command-not-found common-aliases docker git sudo fast-syntax-highlighting ohmyzsh-full-autoupdate zsh-autosuggestions)
+
+# history setup
 # --------------------------------------
-plugins=(npm python sublime sudo web-search common-aliases colored-man-pages command-not-found zsh-syntax-highlighting docker docker-compose)
+export HIST_STAMPS='yyyy-mm-dd'
 
 # activate oh-my-zsh
 # --------------------------------------
 source $ZSH/oh-my-zsh.sh
 
-# unset partial line indicators (mainly for Windows)
-unsetopt prompt_cr prompt_sp
+# setup iterm2 shell integration
+# --------------------------------------
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # source other configuration files
 # --------------------------------------
-[[ -a $HOME/.bashrc  ]] && . $HOME/.bashrc
+# load alias definitions
+[[ -a $HOME/.aliases.sh ]] && . $HOME/.aliases.sh
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# load environment variables
+[[ -a $HOME/.env.sh ]] && . $HOME/.env.sh
+
+# load functions
+[[ -a $HOME/.functions.sh ]] && . $HOME/.functions.sh
+
+# load extras file
+[[ -a $HOME/.extras.sh ]] && . $HOME/.extras.sh
+
+# load nvm
+[[ -a $NVM_DIR/nvm.sh ]] && . $NVM_DIR/nvm.sh # This loads nvm
+
+# initialize starship
+# --------------------------------------
+eval "$(starship init zsh)"
 

@@ -18,10 +18,6 @@
   path = vim/bundle/vim-bundler
   url = https://github.com/tpope/vim-bundler.git
   ignore = dirty
-[submodule "vim/bundle/vim-rails"]
-  path = vim/bundle/vim-rails
-  url = https://github.com/tpope/vim-rails.git
-  ignore = dirty
 [submodule "vim/bundle/vim-sensible"]
   path = vim/bundle/vim-sensible
   url = https://github.com/tpope/vim-sensible.git
@@ -38,11 +34,11 @@
   path = vim/bundle/indentLine
   url = https://github.com/Yggdroot/indentLine.git
   ignore = dirty
+[submodule "vim/bundle/vim-yaml"]
+  path = vim/bundle/vim-yaml
+  url = https://github.com/stephpy/vim-yaml
+  ignore = dirty
 [submodule "vim/bundle/vim-yaml-folds"]
   path = vim/bundle/vim-yaml-folds
   url = https://github.com/pedrohdz/vim-yaml-folds.git
-  ignore = dirty
-[submodule "oh-my-zsh"]
-  path = oh-my-zsh
-  url = https://github.com/marky421/oh-my-zsh.git
   ignore = dirty

@@ -13,7 +13,7 @@ OS=$(uname)
 # environment variables
 # --------------------------------------
 # explicitly configured $PATH variable
-export PATH=/usr/local/git/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/X11/bin:/snap/bin
+export PATH=/usr/local/git/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/X11/bin:/snap/bin
 
 # os-specific environment variables
 if [[ $OS == Darwin ]]; then
@@ -51,14 +51,9 @@ fi
 export PGHOST=localhost
 
 # set default text editor
-if [[ -f /usr/local/bin/vim ]]; then
-  # set to /usr/local/bin/vim if Vim is manually installed,
-  export EDITOR=/usr/local/bin/vim
-elif [[ -f /usr/bin/vim ]]; then
-  # otherwise set to /usr/bin/vim if default Vim exists
-  export EDITOR=/usr/bin/vim
-fi
+export EDITOR='vim'
 
+# set misc home dirs, add all to PATH
 export NVM_DIR=$HOME/.nvm
 export CARGO_HOME=$HOME/.cargo
 export RUSTUP_HOME=$HOME/.rustup
@@ -67,7 +62,7 @@ export GOPATH=/opt/go
 export PATH=$JAVA_HOME/bin:$CARGO_HOME/bin:$GO_HOME/bin:$GOPATH/bin:$PATH
 
 # add custom bin folder to PATH
-export PATH=$HOME/bin:$HOME/.bin:$HOME/.local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # set the man path
 export MANPATH=/usr/local/man:$MANPATH

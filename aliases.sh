@@ -72,6 +72,12 @@ if [[ $OS == Darwin && -f $HOME/.config/neofetch/config ]]; then
   alias neofetch='neofetch --config $HOME/.config/neofetch/config'
 fi
 
+# update command for starship
+# --------------------------------------
+if [[ $OS == Linux ]]; then
+  alias update_starship='curl -sS https://starship.rs/install.sh | sh'
+fi
+
 # MySQL aliases
 # --------------------------------------
 alias mysql='mysql -u root'
