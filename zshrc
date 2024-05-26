@@ -7,6 +7,10 @@
 # --------------------------------------
 export ZSH="$HOME/.oh-my-zsh"
 
+# Set the theme to my custom (old) theme
+# --------------------------------------
+#ZSH_THEME="markspain"
+
 # OMZ update configuration
 # --------------------------------------
 zstyle ':omz:update' mode reminder
@@ -61,5 +65,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # initialize starship
 # --------------------------------------
-eval "$(starship init zsh)"
+echo "theme: $ZSH_THEME"
+[[ ! -v ZSH_THEME ]] && eval "$(starship init zsh)"
 
