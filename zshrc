@@ -65,6 +65,5 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # initialize starship
 # --------------------------------------
-echo "theme: $ZSH_THEME"
 [[ ! -v ZSH_THEME ]] && eval "$(starship init zsh)"
 
