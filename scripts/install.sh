@@ -99,12 +99,13 @@ fi
 if [[ $OS == Darwin ]]; then
   sudo rm -rf $HOME/.config/neofetch
   mkdir -p $HOME/.config/neofetch
-  cp -r $dir/config/neofetch/* ~/.config/neofetch
+  cp -r $dir/config/neofetch/* $HOME/.config/neofetch
 fi
 
 # copy fastfetch config
 # --------------------------------------
-# TODO
+mkdir -p $HOME/.config/fastfetch
+cp -r $dir/config/fastfetch/* $HOME/.config/fastfetch
 
 # symlink bat -> batcat if on Linux
 # --------------------------------------
