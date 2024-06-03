@@ -41,7 +41,6 @@
     {
       "type": "weather",
       "key": "  ",
-      //"outputFormat": "&u&0&q&T&F",
       "location": "Edmonds%2C%20Washington%2C%20United%20States"
     },
     {
