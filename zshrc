@@ -32,7 +32,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(colored-man-pages command-not-found common-aliases docker git sudo fast-syntax-highlighting ohmyzsh-full-autoupdate zsh-autosuggestions)
+plugins=(colored-man-pages command-not-found common-aliases docker sudo fast-syntax-highlighting ohmyzsh-full-autoupdate zsh-autosuggestions)
 
 # history setup
 # --------------------------------------
