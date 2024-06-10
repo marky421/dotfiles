@@ -157,11 +157,6 @@ git clone https://github.com/zsh-users/zsh-autosuggestions                  ${ZS
 git clone https://github.com/Pilaton/OhMyZsh-full-autoupdate.git            ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/ohmyzsh-full-autoupdate
 git clone https://github.com/Aloxaf/fzf-tab                                 ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fzf-tab
 
-# install tmux plugin manager and plugins
-# --------------------------------------
-git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
-$HOME/.tmux/plugins/tpm/bin/install_plugins
-
 # install themes
 # --------------------------------------
 # copy custom (old) zsh theme in case we want to use it again
