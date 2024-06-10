@@ -18,7 +18,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # set the theme
 # --------------------------------------
-#ZSH_THEME=markspain.zsh-theme
+#ZSH_THEME=markspain
 ZSH_THEME=powerlevel10k/powerlevel10k
 
 # OMZ update configuration
