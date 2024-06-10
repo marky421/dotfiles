@@ -20,7 +20,7 @@ cd $dir
 
 # list of files/folders to symlink in homedir
 # --------------------------------------
-files="aliases.zsh bin env.zsh extras.zsh functions.zsh gitconfig gitconfig-work lessfilter p10.zsh tmux.conf vim zlogout zshrc"
+files="aliases.zsh bin env.zsh extras.zsh functions.zsh gitconfig gitconfig-work lessfilter p10k.zsh tmux.conf vim zlogout zshrc"
 
 # install homebrew if on Mac
 # --------------------------------------
@@ -75,7 +75,7 @@ if [[ $OS == Linux ]]; then
   sudo apt install -y eza
 
   # source functions so the install functions are available
-  source $dir/functions.sh
+  source $dir/functions.zsh
   
   # install fastfetch
   update_fastfetch
