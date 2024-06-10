@@ -20,7 +20,7 @@ cd $dir
 
 # list of files/folders to symlink in homedir
 # --------------------------------------
-files="aliases.sh bin env.sh extras.sh functions.sh gitconfig gitconfig-work vim zlogout zshrc"
+files="aliases.zsh bin env.zsh extras.zsh functions.zsh gitconfig gitconfig-work lessfilter p10.zsh tmux.conf vim zlogout zshrc"
 
 # install homebrew if on Mac
 # --------------------------------------
@@ -45,7 +45,7 @@ fi
 
 # install os-agnostic packages
 # --------------------------------------
-packages="zsh vim neofetch htop ncdu curl wget tree bat btop"
+packages="zsh vim neofetch htop ncdu curl wget gpg jq tmux tree bat chafa exiftool btop"
 for package in $packages; do
   if ! [[ -f /bin/$package || -f /usr/bin/$package || -f /usr/local/bin/$package || -f /opt/homebrew/bin/$package ]]; then
     # install using homebrew or apt dpending on OS
@@ -74,16 +74,20 @@ if [[ $OS == Linux ]]; then
   sudo apt update
   sudo apt install -y eza
 
-  # install fastfetch
+  # source functions so the install functions are available
   source $dir/functions.sh
+  
+  # install fastfetch
   update_fastfetch
 
+  # install fd
+  update_fd
 fi
 
 # install Mac-specific packages
 # --------------------------------------
 if [[ $OS == Darwin ]]; then
-  mac_packages="bash-completion@2 cowsay fortune p7zip pianobar python3 eza fastfetch"
+  mac_packages="bash-completion@2 cowsay fortune p7zip pianobar python3 eza fastfetch fd"
   for package in $mac_packages; do
     brew install $package
   done
@@ -92,6 +96,21 @@ if [[ $OS == Darwin ]]; then
   brew tap teamookla/speedtest
   brew update
   brew install speedtest --force
+
+  # install java 
+  if [[ $(java -version 2>&1) != *openjdk* ]]; then
+    brew install java
+    if ! [[ -f /Library/Java/JavaVirtualMachines/openjdk.jdk ]]; then
+      sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+    fi
+  fi
+fi
+
+# symlink bat -> batcat if on Linux
+# --------------------------------------
+if [[ $OS == Linux ]]; then
+  mkdir -p $HOME/.local/bin
+  ln -s /usr/bin/batcat $HOME/.local/bin/bat
 fi
 
 # copy neofetch config if on Mac
@@ -107,21 +126,14 @@ fi
 mkdir -p $HOME/.config/fastfetch
 cp -r $dir/config/fastfetch/* $HOME/.config/fastfetch
 
-# symlink bat -> batcat if on Linux
+# install fzf
 # --------------------------------------
-if [[ $OS == Linux ]]; then
-  mkdir -p $HOME/.local/bin
-  ln -s /usr/bin/batcat $HOME/.local/bin/bat
-fi
+git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
+$HOME/.fzf/install --all --key-bindings --completion --no-update-rc --no-bash --no-zsh --no-fish
 
-# install java if on a Mac 
+# install fzf-git
 # --------------------------------------
-if [[ $OS == Darwin && $(java -version 2>&1) != *openjdk* ]]; then
-  brew install java
-  if ! [[ -f /Library/Java/JavaVirtualMachines/openjdk.jdk ]]; then
-    sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
-  fi
-fi
+git clone --depth 1 https://github.com/junegunn/fzf-git.sh $HOME/.fzf-git.sh
 
 # install nerd font (SauceCodePro -- derived from Source-Code-Pro)
 # --------------------------------------
@@ -145,15 +157,20 @@ git submodule update --init --recursive
 # --------------------------------------
 [[ ! $(echo $SHELL) == $(which zsh) ]] && sudo usermod -s $(which zsh) $USER
 
-# install oh-my-zsh and its plugins
-# -------------------------------------
+# install zsh plugins
+# --------------------------------------
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/Pilaton/OhMyZsh-full-autoupdate.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/ohmyzsh-full-autoupdate
+git clone https://github.com/zsh-users/zsh-autosuggestions                  ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/Pilaton/OhMyZsh-full-autoupdate.git            ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/ohmyzsh-full-autoupdate
+git clone https://github.com/Aloxaf/fzf-tab                                 ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fzf-tab
 
+# instal themes
+# --------------------------------------
 # copy custom (old) zsh theme in case we want to use it again
 cp $dir/markspain.zsh-theme ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/markspain.zsh-theme
+# install powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 # install starship
 # --------------------------------------

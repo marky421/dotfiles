@@ -41,7 +41,7 @@ fi
 # if eza is installed, overwrite ls with eza
 if [[ -f /usr/bin/eza || -f /opt/homebrew/bin/eza ]]; then
   # enhance eza
-  alias eza='eza -ghmF --icons --color-scale=all --color-scale-mode=gradient --icons=always --hyperlink --time-style=long-iso'
+  alias eza='eza -ghmF --color=always --color-scale=all --color-scale-mode=gradient --icons=always --hyperlink --time-style=long-iso'
   # overwite ls with eza
   alias ls='eza'
 fi
@@ -56,26 +56,12 @@ alias lal='ls -al'                            # give lal desired 'ls -al' behavi
 # git aliases
 # --------------------------------------
 alias gs='git status '
-alias ga='git add '
 alias gp='git push'
-alias gb='git branch '
-alias gc='git commit'
-alias gd='git diff'
-alias gk='gitk --all&'
-alias gx='gitx --all'
-alias got='git '
-alias get='git '
 
 # neofetch alias for macos
 # --------------------------------------
 if [[ $OS == Darwin && -f $HOME/.config/neofetch/config ]]; then
   alias neofetch='neofetch --config $HOME/.config/neofetch/config'
-fi
-
-# update command for starship
-# --------------------------------------
-if [[ $OS == Linux ]]; then
-  alias update_starship='curl -sS https://starship.rs/install.sh | sh'
 fi
 
 # MySQL aliases

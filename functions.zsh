@@ -43,40 +43,12 @@ loop() {
   while true; do eval $COMMAND; sleep $SLEEP_DURATION; done
 }
 
-# os-specific ls options (for use in cdl() and cdll())
-# --------------------------------------
-LS="ls -CFh"
-LSL="ls -CFhl"
-LSA="ls -CFha"
-LSLA="ls -CFhla"
-if [[ $OS == Darwin ]]; then
-  LS="ls -CFGh"
-  LSL="ls -CFGhl"
-  LSA="ls -CFGha"
-  LSLA="ls -CFGhla"
-elif [[ $OS == Linux ]]; then
-  LS="ls -CFh --color=always"
-  LSL="ls -CFhl --color=always"
-  LSA="ls -CFha --color=always"
-  LSLA="ls -CFhla --color=always"
-fi
-
-# cdl - change to a directory and ls its contents
-# --------------------------------------
-cdl() { cd $1 && eval $LS; }
-
-# cdll - change to a directory and ls -l its contents
-# --------------------------------------
-cdll() { cd $1 && eval $LSL; }
-
-# mkcd - create a directory and cd to it
-# --------------------------------------
-mkcd() { mkdir -p $1 && cd $1; }
-
 # ff - search current directory for specified pattern
 # --------------------------------------
 unalias ff 2>/dev/null
-ff() { eval $LSLA | grep -i --color=always "$1"; }
+ff() {
+  fd $1 .
+}
 
 # psgrep - search for the specified process
 # --------------------------------------
@@ -106,6 +78,21 @@ weather() {
   fi
 }
 
+# print out the current terminal colors
+# --------------------------------------
+palette() {
+  for i in {0..255}; do
+    print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'};
+  done
+}
+
+# print the escape sequence for the color code
+# --------------------------------------
+printc() {
+  local color="%F{$1}"
+  echo -E ${(qqqq)${(%)color}}
+}
+
 # update_fastfetch - installs/updates fastfetch by downloading the latest .deb from github
 # --------------------------------------
 update_fastfetch() {
@@ -133,5 +120,86 @@ update_fastfetch() {
   else
     echo "Only applicable on Linux systems"
   fi
+}
+
+# update_starship - installs/updates starship
+# --------------------------------------
+update_starship() {
+  OS=$(uname)
+  if [[ $OS == Linux ]]; then
+    curl -sS https://starship.rs/install.sh | sh
+  else
+    echo "Only applicable on Linux systems"
+  fi
+}
+
+# update_fzf - updates fzf by pulling the latest and running the installation script
+# --------------------------------------
+update_fzf() {
+  if (( $+commands[fzf] )); then
+    current_dir=$(pwd)
+    cd $HOME/.fzf
+    git pull
+    $HOME/.fzf/install --all --key-bindings --completion --no-update-rc --no-bash --no-zsh --no-fish
+    cd $current_dir
+  fi
+}
+
+# updatea_fzf_git - updates fzf-git.sh by pulling the latest and sourcing the file
+# --------------------------------------
+update_fzf_git() {
+  current_dir=$(pwd)
+  cd $HOME/.fzf-git.sh
+  git pull
+  source $HOME/.fzf-git.sh/fzf-git.sh
+  cd $current_dir
+}
+
+# update_fd - installs/updates fd by downloading the latest .deb from github
+# --------------------------------------
+update_fd() {
+ OS=$(uname)
+  if [[ $OS == Linux ]]; then
+    arch=$(arch)
+    case $arch in
+      "x86_64"  | "amd64") arch="amd64" ;;
+      "aarch64" | "arm64") arch="arm64" ;;
+      "armv7l"  | "armhf") arch="armhf" ;;
+                        *) arch=""      ;;
+    esac
+
+    if [ -z $arch ]; then
+      echo "Incompatible architecture: $(arch)"
+    else
+      echo "Checking latest version of fd for architecture: $arch"
+      current_version=$(fd --version | cut -c4-)
+      latest_version=$(curl https://api.github.com/repos/sharkdp/fd/releases/latest -s | jq .name -r | cut -c2-)
+      echo "Current version is $current_version"
+      echo "Lastest version is $latest_version"
+      if [[ $current_version != $latest_version ]]; then
+	echo "Installing latest version" 
+        package="fd-musl_${latest_version}_${arch}.deb"
+        url="https://github.com/sharkdp/fd/releases/latest/download/$package"
+        wget -O /tmp/$package $url
+        sudo apt install -y /tmp/$package
+        rm -f /tmp/$package
+        echo "Installed $(fd --version)"
+      else
+        echo "Latest version already installed"
+      fi
+    fi
+  else
+    echo "Only applicable on Linux systems"
+  fi
+}
+
+# update_all - runs all the update functions in this file
+# --------------------------------------
+update_all() {
+  update_fastfetch
+  update_starship
+  update_fzf
+  update_fzf_git
+  update_fd
 }
 
