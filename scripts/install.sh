@@ -115,6 +115,15 @@ git submodule update --init --recursive
 # --------------------------------------
 [[ ! $(echo $SHELL) == $(which zsh) ]] && sudo usermod -s $(which zsh) $USER
 
+# install zsh plugins
+# --------------------------------------
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
+# install themes
+# --------------------------------------
+# copy custom (old) zsh theme in case we want to use it again
+cp $dir/markspain.zsh-theme ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/markspain.zsh-theme
+
 # delete old dotfiles and create symlinks to new ones
 # --------------------------------------
 echo "Deleting any existing dotfiles from $HOME"
