@@ -157,7 +157,12 @@ git clone https://github.com/zsh-users/zsh-autosuggestions                  ${ZS
 git clone https://github.com/Pilaton/OhMyZsh-full-autoupdate.git            ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/ohmyzsh-full-autoupdate
 git clone https://github.com/Aloxaf/fzf-tab                                 ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fzf-tab
 
-# instal themes
+# install tmux plugin manager and plugins
+# --------------------------------------
+git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+$HOME/.tmux/plugins/tpm/bin/install_plugins
+
+# install themes
 # --------------------------------------
 # copy custom (old) zsh theme in case we want to use it again
 cp $dir/markspain.zsh-theme ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/markspain.zsh-theme
@@ -166,12 +171,8 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 
 # install starship
 # --------------------------------------
-if [[ $OS == Darwin ]]; then
-  brew install starship
-fi
-if [[ $OS == Linux ]]; then
-  curl -sS https://starship.rs/install.sh | sh -s -- -y
-fi
+[[ $OS == Darwin ]] && brew install starship
+[[ $OS == Linux  ]] && curl -sS https://starship.rs/install.sh | sh -s -- -y
 mkdir -p $HOME/.config
 ln -s $dir/config/starship.toml $HOME/.config/starship.toml
 
