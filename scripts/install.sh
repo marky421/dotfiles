@@ -58,9 +58,7 @@ done
 # --------------------------------------
 if [[ $OS == Linux ]]; then
   linux_packages="lsb-release apt-transport-https ca-certificates libcap2-bin pass gpg unzip"
-  for package in $linux_packages; do
-    sudo apt install -y $package
-  done
+  sudo apt install -y $linux_packages
 
   # install speedtest cli
   curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
@@ -88,9 +86,7 @@ fi
 # --------------------------------------
 if [[ $OS == Darwin ]]; then
   mac_packages="bash-completion@2 cowsay fortune p7zip pianobar python3 eza fastfetch fd"
-  for package in $mac_packages; do
-    brew install $package
-  done
+  brew install $mac_packages
 
   # install speedtest cli
   brew tap teamookla/speedtest
