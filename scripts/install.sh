@@ -46,13 +46,9 @@ fi
 # install os-agnostic packages
 # --------------------------------------
 packages="zsh vim neofetch htop ncdu curl wget gpg jq tmux tree bat chafa exiftool btop"
-for package in $packages; do
-  if ! [[ -f /bin/$package || -f /usr/bin/$package || -f /usr/local/bin/$package || -f /opt/homebrew/bin/$package ]]; then
-    # install using homebrew or apt dpending on OS
-    [[ $OS == Darwin ]] && brew install $package
-    [[ $OS == Linux  ]] && sudo apt install -y $package
-  fi
-done
+# install using homebrew or apt dpending on OS
+[[ $OS == Darwin ]] && brew install $packages
+[[ $OS == Linux  ]] && sudo apt install -y $packages
 
 # install linux-specific packages
 # --------------------------------------
