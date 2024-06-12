@@ -171,6 +171,11 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 mkdir -p $HOME/.config
 ln -s $dir/config/starship.toml $HOME/.config/starship.toml
 
+# copy example.extras.zsh to extras.zsh
+# --------------------------------------
+# any host-specific config in extras.zsh will be ignored by git
+cp $dir/example.extras.zsh $dir/extras.zsh
+
 # delete old dotfiles and create symlinks to new ones
 # --------------------------------------
 echo "Deleting any existing dotfiles from $HOME"
