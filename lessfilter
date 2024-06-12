@@ -6,7 +6,7 @@ kind=${mime##*/}
 if [ -d "$1" ]; then
   eza -ghlmF --color=always --color-scale=all --color-scale-mode=gradient --icons=always --hyperlink --no-time "$1"
 elif [ "$category" = image ]; then
-  if [ "$LC_TERMINAL" = iTerm2 ]; then
+  if [ "$TERM_PROGRAM" = "iTerm.app" ]; then
     imgcat -r -W 50% -H 50% "$1"
   else
     chafa "$1"
