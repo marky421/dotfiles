@@ -50,7 +50,9 @@ HIST_STAMPS='yyyy-mm-dd'
 
 # activate oh-my-zsh
 # --------------------------------------
-source $ZSH/oh-my-zsh.sh
+source /Users/mark/.oh-my-zsh/oh-my-zsh.sh
+# unalias "fd" so we use the actual fd package
+unalias fd
 
 # explicitly configure $PATH variable
 # --------------------------------------
