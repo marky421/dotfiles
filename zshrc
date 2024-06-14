@@ -52,7 +52,9 @@ HIST_STAMPS='yyyy-mm-dd'
 # --------------------------------------
 source $ZSH/oh-my-zsh.sh
 # unalias "fd" so we use the actual fd package
-unalias fd
+if [[ whence -w fd | grep "alias" ]]; then
+  unalias fd
+fi
 
 # explicitly configure $PATH variable
 # --------------------------------------
