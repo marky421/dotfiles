@@ -5,3 +5,8 @@
 
 [user]
   email = Mark.Spain@ey.com
+  signingKey = ~/.ssh/id_ed25519.pub
+
+[gpg]
+  format = ssh
+
