@@ -53,6 +53,10 @@ alias la='ls -a'                              # give la desired 'ls -a' behavior
 alias lla='ls -la'                            # give lla desired 'ls -la' behavior
 alias lal='ls -al'                            # give lal desired 'ls -al' behavior
 
+# cd aliases
+# --------------------------------------
+alias cd='z' # use zoxide for cd
+
 # git aliases
 # --------------------------------------
 alias gs='git status '

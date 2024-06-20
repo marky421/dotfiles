@@ -57,7 +57,8 @@ unalias fd 2>/dev/null
 # explicitly configure $PATH variable
 # --------------------------------------
 #export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin # default path for Mac OSX
-export PATH=/usr/local/git/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/X11/bin:/snap/bin
+#export PATH=/usr/local/git/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/X11/bin:/snap/bin
+export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/git/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/X11/bin:/snap/bin
 
 # fzf configuration
 # --------------------------------------
@@ -66,7 +67,7 @@ if [[ ! "$PATH" == $HOME/.fzf/bin* ]]; then
   export PATH="${PATH:+${PATH}:}$HOME/.fzf/bin"
 fi
 
-# use fd instead of fzf
+# use fd instead of file for fzf
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
@@ -134,6 +135,10 @@ zstyle ':fzf-tab:complete:(kill|ps):argument-rest' fzf-flags --preview-window=do
 zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'   # in general
 zstyle ':fzf-tab:complete:vim:*' fzf-preview 'less ${(Q)realpath}' # for vim specifically
 export LESSOPEN="|$HOME/.lessfilter %s"
+
+# initialize zoxide
+# --------------------------------------
+eval "$(zoxide init zsh)"
 
 # setup iterm2 shell integration
 # --------------------------------------

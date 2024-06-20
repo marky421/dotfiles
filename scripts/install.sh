@@ -72,6 +72,9 @@ if [[ $OS == Linux ]]; then
   mkdir -p $HOME/.local/bin
   ln -s /usr/bin/batcat $HOME/.local/bin/bat
 
+  # install zoxide
+  curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+
   # source functions so the install functions are available
   source $dir/functions.zsh
   
@@ -86,7 +89,7 @@ fi
 # install Mac-specific packages
 # --------------------------------------
 if [[ $OS == Darwin ]]; then
-  mac_packages="bash-completion@2 cowsay fortune p7zip pianobar python3 eza fastfetch fd"
+  mac_packages="bash-completion@2 cowsay fortune p7zip pianobar python3 eza fastfetch fd zoxide"
   brew install $mac_packages
 
   # install speedtest cli
