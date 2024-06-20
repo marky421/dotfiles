@@ -68,6 +68,10 @@ if [[ $OS == Linux ]]; then
   sudo apt update
   sudo apt install -y eza
 
+  # symlink bat -> batcat if on Linux
+  mkdir -p $HOME/.local/bin
+  ln -s /usr/bin/batcat $HOME/.local/bin/bat
+
   # source functions so the install functions are available
   source $dir/functions.zsh
   
@@ -76,6 +80,7 @@ if [[ $OS == Linux ]]; then
 
   # install fd
   update_fd
+
 fi
 
 # install Mac-specific packages
@@ -96,21 +101,22 @@ if [[ $OS == Darwin ]]; then
       sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
     fi
   fi
-fi
-
-# symlink bat -> batcat if on Linux
-# --------------------------------------
-if [[ $OS == Linux ]]; then
-  mkdir -p $HOME/.local/bin
-  ln -s /usr/bin/batcat $HOME/.local/bin/bat
-fi
-
-# copy neofetch config if on Mac
-# --------------------------------------
-if [[ $OS == Darwin ]]; then
+  
+  # copy neofetch config
   sudo rm -rf $HOME/.config/neofetch
   mkdir -p $HOME/.config/neofetch
   cp -r $dir/config/neofetch/* $HOME/.config/neofetch
+
+  # copy alacritty config
+  mkdir -p $HOME/.config/alacritty/
+  ln -s $dir/alacritty.toml $HOME/.config/alacritty/alacritty.toml
+
+  # install alacritty themes
+  mkdir -p ~/.config/alacritty/themes
+  git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+
+  # copy wezterm config
+  ln -s $dir/.wezterm.lua $HOME/wezterm.lua1:w
 fi
 
 # copy fastfetch config
@@ -120,7 +126,7 @@ cp -r $dir/config/fastfetch/* $HOME/.config/fastfetch
 
 # install fzf
 # --------------------------------------
-git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/fzf
 $HOME/.fzf/install --all --key-bindings --completion --no-update-rc --no-bash --no-zsh --no-fish
 
 # install fzf-git

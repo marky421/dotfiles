@@ -33,6 +33,7 @@ brew install font-source-code-pro
 
 # install casks
 casks = (
+  alacritty
   appcleaner
   arduino
   bartender
@@ -49,8 +50,8 @@ casks = (
   istat-menus
   league-of-legends
   mqtt-explorer
-# gemini
-#  onyx
+  #gemini
+  #onyx
   nvidia-geforce-now
   plex
   steam
@@ -62,6 +63,7 @@ casks = (
   vlc
   vnc-server
   vnc-viewer
+  wezterm
 )
 
 for cask in ${casks[*]}; do
