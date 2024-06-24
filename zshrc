@@ -58,7 +58,7 @@ unalias fd 2>/dev/null
 # --------------------------------------
 #export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin # default path for Mac OSX
 #export PATH=/usr/local/git/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/X11/bin:/snap/bin
-export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/git/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/X11/bin:/snap/bin
+export PATH=$HOME/.local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/git/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/X11/bin:/snap/bin
 
 # fzf configuration
 # --------------------------------------

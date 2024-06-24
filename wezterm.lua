@@ -23,12 +23,19 @@ config.cursor_blink_ease_out = "Constant"
 config.cursor_blink_ease_in = "Constant"
 
 -- set window options
+config.initial_cols = 128
+config.initial_rows = 32
 config.hide_tab_bar_if_only_one_tab = true
 config.use_fancy_tab_bar = false
 config.enable_scroll_bar = true
 config.window_decorations = "RESIZE"
 config.window_background_opacity = 0.75
 config.macos_window_background_blur = 8
+-- set startup position
+wezterm.on("gui-startup", function(cmd)
+   local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
+   window:gui_window():set_position(300, 300)
+end)
 
 -- set keybindings
 config.keys = {
