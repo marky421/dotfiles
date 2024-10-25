@@ -45,7 +45,7 @@ fi
 
 # install os-agnostic packages
 # --------------------------------------
-packages="zsh vim neofetch htop ncdu curl wget gpg jq tmux tree bat chafa exiftool btop"
+packages="zsh vim neofetch htop file ncdu curl wget gpg jq tmux tree bat chafa exiftool btop"
 # install using homebrew or apt dpending on OS
 [[ $OS == Darwin ]] && brew install $packages
 [[ $OS == Linux  ]] && sudo apt install -y $packages
@@ -119,7 +119,7 @@ if [[ $OS == Darwin ]]; then
   git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
 
   # copy wezterm config
-  ln -s $dir/.wezterm.lua $HOME/wezterm.lua1:w
+  ln -s $dir/.wezterm.lua $HOME/wezterm.lua
 fi
 
 # copy fastfetch config
@@ -129,7 +129,7 @@ cp -r $dir/config/fastfetch/* $HOME/.config/fastfetch
 
 # install fzf
 # --------------------------------------
-git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
 $HOME/.fzf/install --all --key-bindings --completion --no-update-rc --no-bash --no-zsh --no-fish
 
 # install fzf-git
