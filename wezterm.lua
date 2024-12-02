@@ -28,7 +28,7 @@ config.initial_rows = 32
 config.hide_tab_bar_if_only_one_tab = true
 config.use_fancy_tab_bar = false
 config.enable_scroll_bar = true
-config.window_decorations = "RESIZE"
+config.window_decorations = "TITLE | RESIZE"
 config.window_close_confirmation = "AlwaysPrompt"
 config.window_background_opacity = 0.75
 config.macos_window_background_blur = 8
@@ -42,7 +42,7 @@ end)
 config.keys = {
   {
     key = 'm',
-    mods = 'SHIFT|CTRL',
+    mods = 'SHIFT | CTRL',
     action = wezterm.action.ToggleFullScreen,
   }
 }
