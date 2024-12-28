@@ -42,6 +42,7 @@ casks = (
   caffeine
   docker
   dropbox
+  ghostty
   google-chrome
   google-drive
   grandperspective
