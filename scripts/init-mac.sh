@@ -51,8 +51,6 @@ casks = (
   istat-menus
   league-of-legends
   mqtt-explorer
-  #gemini
-  #onyx
   nvidia-geforce-now
   plex
   steam
@@ -62,8 +60,6 @@ casks = (
   transmit
   visual-studio-code
   vlc
-  vnc-server
-  vnc-viewer
   wezterm
 )
 
