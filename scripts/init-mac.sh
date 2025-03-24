@@ -40,6 +40,7 @@ casks = (
   battle-net
   brave-browser
   caffeine
+  discord
   docker
   dropbox
   ghostty
