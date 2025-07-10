@@ -89,7 +89,7 @@ fi
 # install Mac-specific packages
 # --------------------------------------
 if [[ $OS == Darwin ]]; then
-  mac_packages="bash-completion@2 cowsay fortune p7zip pianobar python3 eza fastfetch fd zoxide"
+  mac_packages="bash-completion@2 cowsay fortune p7zip pianobar python3 pyenv pyenv-virtualenv eza fastfetch fd zoxide"
   brew install $mac_packages
 
   # install speedtest cli
