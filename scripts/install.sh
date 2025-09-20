@@ -117,7 +117,7 @@ if [[ $OS == Darwin ]]; then
   cp -r $dir/config/neofetch/* $HOME/.config/neofetch
 
   # copy alacritty config
-  mkdir -p $HOME/.config/alacritty/
+  mkdir -p $HOME/.config/alacritty
   ln -s $dir/alacritty.toml $HOME/.config/alacritty/alacritty.toml
 
   # install alacritty themes
@@ -125,7 +125,11 @@ if [[ $OS == Darwin ]]; then
   git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
 
   # copy wezterm config
-  ln -s $dir/.wezterm.lua $HOME/wezterm.lua
+  ln -s $dir/wezterm.lua $HOME/.wezterm.lua
+
+  # copy ghostty config
+  mkdir -p $HOME/.config/ghostty
+  ln -s $dir/config/ghostty/config $HOME/.config/ghostty/config
 fi
 
 # copy fastfetch config

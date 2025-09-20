@@ -1,0 +1,22 @@
+# ----------------------------------------------------------------------
+# ~/.config/ghostty/config
+# Mark Spain
+# ----------------------------------------------------------------------
+
+theme = "Dracula+"
+font-family = "SauceCodePro NFM"
+font-size = "18"
+window-height = "35"
+window-width = "120"
+window-padding-x = "10"
+window-padding-y = "10"
+window-padding-balance = "true"
+background-opacity = "0.8"
+background-blur-radius = "8"
+quit-after-last-window-closed = "true"
+term = "xterm-256color"
+macos-titlebar-style = "tabs"
+macos-icon = "glass"
+#macos-icon = "xray"
+#macos-icon = "holographic"
+auto-update = "download"
