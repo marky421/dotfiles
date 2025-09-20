@@ -25,7 +25,7 @@ config.cursor_blink_ease_in = "Constant"
 -- set window options
 config.initial_cols = 128
 config.initial_rows = 32
-config.hide_tab_bar_if_only_one_tab = true
+config.hide_tab_bar_if_only_one_tab = false
 config.use_fancy_tab_bar = true
 config.enable_scroll_bar = true
 config.window_decorations = "INTEGRATED_BUTTONS | RESIZE"
