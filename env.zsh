@@ -50,6 +50,7 @@ export PGHOST=localhost
 # set default text editor
 export EDITOR='vim'
 
+# setup pyenv if it's installed
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 [[ -d $PYENV_ROOT/bin ]] && eval "$(pyenv init - zsh)"
