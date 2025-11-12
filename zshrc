@@ -42,7 +42,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(colored-man-pages command-not-found common-aliases docker sudo fzf fzf-tab fast-syntax-highlighting ohmyzsh-full-autoupdate zsh-autosuggestions)
+plugins=(colored-man-pages command-not-found common-aliases docker poetry sudo fzf fzf-tab fast-syntax-highlighting ohmyzsh-full-autoupdate zsh-autosuggestions)
 
 # history setup
 # --------------------------------------
@@ -160,6 +160,7 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # load nvm
 [[ -a $NVM_DIR/nvm.sh ]] && source $NVM_DIR/nvm.sh # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # initialize starship
 # --------------------------------------
