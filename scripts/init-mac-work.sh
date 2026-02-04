@@ -37,6 +37,7 @@ brew install stats
 # install casks
 casks = (
   appcleaner
+  bartender
   bitwarden
   caffeine
   docker
