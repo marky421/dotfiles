@@ -24,45 +24,31 @@ echo ""
 # --------------------------------------
 echo "Installing homebrew casks..."
 
-# tap the repos
-brew tap homebrew/cask
-brew tap homebrew/cask-fonts
-
 # install fonts
 brew install font-source-code-pro
 
+# install deskflow
+brew tap deskflow/tap
+brew install deskflow
+
+# install stats
+brew install stats
+
 # install casks
 casks = (
-  alacritty
   appcleaner
-  arduino
-  bartender
-  battle-net
-  brave-browser
+  bitwarden
   caffeine
-  chatgpt
-  discord
   docker
-  dropbox
   ghostty
   google-chrome
-  google-drive
   grandperspective
   intellij-idea
-  iterm2
-  istat-menus
-  league-of-legends
-  mqtt-explorer
-  nvidia-geforce-now
-  plex
-  steam
+  postman
   sublime-text
   the-unarchiver
-  transmission
   transmit
   visual-studio-code
-  vlc
-  wezterm
 )
 
 for cask in ${casks[*]}; do

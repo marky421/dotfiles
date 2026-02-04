@@ -7,6 +7,9 @@
   email = markyspain421@gmail.com
   name = Mark Spain
 
+[includeIf "gitdir:/Users/Mark.Spain/**"]
+  path = ~/.gitconfig-work
+
 [includeIf "gitdir:/mnt/c/Users/BB886QZ/**"]
   path = ~/.gitconfig-work
 
