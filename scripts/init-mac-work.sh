@@ -37,7 +37,6 @@ brew install stats
 # install casks
 casks = (
   appcleaner
-  bartender
   bitwarden
   caffeine
   docker
@@ -48,6 +47,7 @@ casks = (
   intellij-idea
   postman
   sublime-text
+  thaw
   the-unarchiver
   transmit
   visual-studio-code
