@@ -40,6 +40,7 @@ casks = (
   bitwarden
   caffeine
   docker
+  elgato-wave-link
   ghostty
   google-chrome
   grandperspective
