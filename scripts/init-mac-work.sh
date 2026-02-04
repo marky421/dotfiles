@@ -38,8 +38,8 @@ brew install stats
 casks = (
   appcleaner
   bitwarden
-  caffeine
   docker
+  domzilla-caffeine
   elgato-wave-link
   ghostty
   google-chrome
