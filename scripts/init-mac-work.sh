@@ -50,6 +50,7 @@ casks = (
   thaw
   the-unarchiver
   transmit
+  unnaturalscrollwheels
   visual-studio-code
 )
 
