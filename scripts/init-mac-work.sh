@@ -52,6 +52,7 @@ casks = (
   transmit
   unnaturalscrollwheels
   visual-studio-code
+  zoom
 )
 
 for cask in ${casks[*]}; do
