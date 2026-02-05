@@ -32,14 +32,13 @@ casks = (
   alacritty
   appcleaner
   arduino
-  bartender
   battle-net
   bitwarden
   brave-browser
-  caffeine
   chatgpt
   discord
   docker
+  domzilla-caffeine
   dropbox
   ghostty
   google-chrome
@@ -54,9 +53,12 @@ casks = (
   plex
   steam
   sublime-text
+  thaw
   the-unarchiver
   transmission
   transmit
+  unnaturalscrollwheels
+  utm
   visual-studio-code
   vlc
   wezterm

@@ -51,6 +51,7 @@ casks = (
   the-unarchiver
   transmit
   unnaturalscrollwheels
+  utm
   visual-studio-code
   zoom
 )
