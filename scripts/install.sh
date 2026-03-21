@@ -95,13 +95,18 @@ fi
 # install Mac-specific packages
 # --------------------------------------
 if [[ $OS == Darwin ]]; then
-  mac_packages="bash-completion@2 cloudflare-speedtest-cli cowsay eza fastfetch fd fortune p7zip pianobar pipx python3 pyenv pyenv-virtualenv zoxide"
+  mac_packages="bash-completion@2 cowsay eza fastfetch fd fortune p7zip pianobar pipx python3 pyenv pyenv-virtualenv zoxide"
   brew install $mac_packages
 
   # install speedtest cli
   brew tap teamookla/speedtest
   brew update
   brew install speedtest --force
+
+  # install cloudflare speedtest cli
+  brew tap validatedev/tap
+  brew update
+  brew install cloudflare-speed-cli
 
   # install java 
   if [[ $(java -version 2>&1) != *openjdk* ]]; then
