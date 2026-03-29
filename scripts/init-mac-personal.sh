@@ -51,6 +51,7 @@ casks = (
   mqtt-explorer
   nvidia-geforce-now
   plex
+  raspberry-pi-imager
   steam
   sublime-text
   thaw
