@@ -132,7 +132,7 @@ sudo tee -a /etc/update-motd.d/30-neofetch > /dev/null <<EOT
 #    | $ sudo chmod 644 /etc/profile.d/motd.sh                |
 #    | $ sudo bash -c 'cat > /etc/profile.d/motd.sh << EOF    |
 #    |   #!/bin/sh                                            |
-#    |   neofetch --config /opt/neofetch/config               |
+#    |   neowofetch --config /opt/neowofetch/config           |
 #    |   EOF'                                                 |
 #    +--------------------------------------------------------+
 #
@@ -159,7 +159,7 @@ sudo chmod 644 /etc/profile.d/motd.sh
 sudo bash -c 'cat > /etc/profile.d/motd.sh << EOF
 #!/bin/sh
 echo ""
-neofetch --config /opt/neofetch/config
+neowofetch --config /opt/neowofetch/config
 EOF'
 sudo tee -a /etc/zsh/zprofile > /dev/null <<EOT
 # mark's customization
