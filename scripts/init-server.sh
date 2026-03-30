@@ -27,15 +27,23 @@ docker completion zsh > $HOME/.oh-my-zsh/plugins/docker/_docker
 
 # configure neofetch
 # --------------------------------------
-sudo apt install -y neofetch
+sudo apt install -y neowofetch
 echo "Copying neofetch config file"
 sudo mkdir /opt/neofetch
+sudo mkdir /opt/neowofetch
 sudo chown root:root /opt/neofetch
+sudo chown root:root /opt/neowofetch
 sudo chmod 755 /opt/neofetch
+sudo chmod 755 /opt/neowofetch
 mkdir -p $HOME/.config/neofetch
+mkdir -p $HOME/.config/neowofetch
 cp $dir/config/neofetch/config $HOME/.config/neofetch/config
+cp $dir/config/neofetch/config $HOME/.config/neowofetch/config
 chmod -R 755 $HOME/.config/neofetch/
+chmod -R 755 $HOME/.config/neowofetch/
 sudo ln -s $HOME/.config/neofetch/config /opt/neofetch/config
+sudo ln -s $HOME/.config/neowofetch/config /opt/neowofetch/config
+mv $HOME/.config/neowofetch/config.conf $HOME/.config/neowofetch/config.conf.default
 echo "Edit custom neofetch config at your ealiest convenience"
 
 # configure sshd
