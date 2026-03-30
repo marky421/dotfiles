@@ -62,10 +62,16 @@ alias cd='z' # use zoxide for cd
 alias gs='git status '
 alias gp='git push'
 
+# neofetch alias for linux
+# --------------------------------------
+if [[ $OS == Linux ]]; then
+  alias neofetch='neowofetch'
+fi
+
 # neofetch alias for macos
 # --------------------------------------
 if [[ $OS == Darwin && -f $HOME/.config/neofetch/config ]]; then
-  alias neofetch='neofetch --config $HOME/.config/neofetch/config'
+  alias neofetch='neowofetch --config $HOME/.config/neofetch/config'
 fi
 
 # MySQL aliases

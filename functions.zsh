@@ -172,12 +172,16 @@ update_fd() {
       echo "Incompatible architecture: $(arch)"
     else
       echo "Checking latest version of fd for architecture: $arch"
-      current_version=$(fd --version | cut -c4-)
       latest_version=$(curl https://api.github.com/repos/sharkdp/fd/releases/latest -s | jq .name -r | cut -c2-)
+      if [ command -v fd >/dev/null 2>&1 ]; then
+        current_version=$(fd --version | cut -c4-)
+      else
+        current_version=-1
+      fi
       echo "Current version is $current_version"
       echo "Lastest version is $latest_version"
       if [[ $current_version != $latest_version ]]; then
-	echo "Installing latest version" 
+        echo "Installing latest version" 
         package="fd-musl_${latest_version}_${arch}.deb"
         url="https://github.com/sharkdp/fd/releases/latest/download/$package"
         wget -O /tmp/$package $url

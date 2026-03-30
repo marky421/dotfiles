@@ -48,6 +48,7 @@ casks = (
   iterm2
   istat-menus
   league-of-legends
+  lunar
   mqtt-explorer
   nvidia-geforce-now
   plex

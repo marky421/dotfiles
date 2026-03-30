@@ -45,7 +45,7 @@ fi
 
 # install os-agnostic packages
 # --------------------------------------
-packages="zsh vim neofetch htop file ncdu curl wget gpg jq tmux tree bat chafa exiftool btop"
+packages="zsh vim htop file ncdu curl wget gpg jq tmux tree bat chafa exiftool btop"
 # install using homebrew or apt dpending on OS
 [[ $OS == Darwin ]] && brew install $packages
 [[ $OS == Linux  ]] && sudo apt install -y $packages
@@ -53,7 +53,7 @@ packages="zsh vim neofetch htop file ncdu curl wget gpg jq tmux tree bat chafa e
 # install linux-specific packages
 # --------------------------------------
 if [[ $OS == Linux ]]; then
-  linux_packages="lsb-release apt-transport-https ca-certificates libcap2-bin pass gpg unzip"
+  linux_packages="lsb-release apt-transport-https fontconfig ca-certificates libcap2-bin pass gpg unzip neowofetch"
   sudo apt install -y $linux_packages
 
   # install speedtest cli
@@ -70,7 +70,7 @@ Suites: stable
 Components: main
 Signed-By: /etc/apt/keyrings/gierens.gpg
 " | sudo tee /etc/apt/sources.list.d/gierens.sources
-  sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
+  sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.sources
   sudo apt update
   sudo apt install -y eza
 
@@ -95,7 +95,7 @@ fi
 # install Mac-specific packages
 # --------------------------------------
 if [[ $OS == Darwin ]]; then
-  mac_packages="bash-completion@2 cowsay eza fastfetch fd fortune p7zip pianobar pipx python3 pyenv pyenv-virtualenv zoxide"
+  mac_packages="bash-completion@2 cowsay eza fastfetch fd fortune hyfetch p7zip pianobar pipx python3 pyenv pyenv-virtualenv zoxide"
   brew install $mac_packages
 
   # install speedtest cli

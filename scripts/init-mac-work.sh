@@ -45,6 +45,7 @@ casks = (
   google-chrome
   grandperspective
   intellij-idea
+  lunar
   postman
   sublime-text
   thaw
