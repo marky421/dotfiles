@@ -40,6 +40,7 @@ casks = (
   bitwarden
   docker
   domzilla-caffeine
+  drawio
   elgato-wave-link
   ghostty
   google-chrome

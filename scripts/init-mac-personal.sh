@@ -39,6 +39,7 @@ casks = (
   discord
   docker
   domzilla-caffeine
+  drawio
   dropbox
   ghostty
   google-chrome
