@@ -54,7 +54,6 @@ export EDITOR='vim'
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 [[ -d $PYENV_ROOT/bin ]] && eval "$(pyenv init - zsh)"
-[[ -d $PYENV_ROOT/bin ]] && eval "$(pyenv virtualenv-init -)"
 
 # set misc home dirs, add all to PATH
 export NVM_DIR=$HOME/.nvm
