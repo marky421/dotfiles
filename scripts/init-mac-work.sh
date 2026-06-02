@@ -34,10 +34,14 @@ brew install deskflow
 # install stats
 brew install stats
 
+# add tap for clamper
+brew tap validatedev/tap
+
 # install casks
 casks = (
   appcleaner
   bitwarden
+  clamper
   docker
   domzilla-caffeine
   drawio
@@ -48,6 +52,7 @@ casks = (
   intellij-idea
   lunar
   postman
+  rectangle-pro
   sublime-text
   thaw
   the-unarchiver
