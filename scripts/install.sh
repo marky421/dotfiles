@@ -45,7 +45,7 @@ fi
 
 # install os-agnostic packages
 # --------------------------------------
-packages="zsh vim htop file ncdu curl wget gpg jq tmux tree bat chafa exiftool btop"
+packages="zsh vim htop file ncdu curl wget gpg inxi jq tmux tree bat chafa exiftool btop"
 # install using homebrew or apt dpending on OS
 [[ $OS == Darwin ]] && brew install $packages
 [[ $OS == Linux  ]] && sudo apt install -y $packages
