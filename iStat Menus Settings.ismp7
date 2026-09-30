@@ -328,6 +328,15 @@
 				<key>type</key>
 				<integer>7</integer>
 			</dict>
+			<dict>
+				<key>source</key>
+				<integer>15</integer>
+				<key>useroptions</key>
+				<dict>
+					<key>width</key>
+					<integer>10</integer>
+				</dict>
+			</dict>
 		</array>
 		<key>Profiles.Settings.default.Disks.Menubar.Enabled</key>
 		<integer>0</integer>
